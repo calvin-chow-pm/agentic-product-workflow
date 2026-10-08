@@ -1,0 +1,886 @@
+[
+  {
+    "duration": 15,
+    "title": "An insight started the work.",
+    "subtitle": "A reconstruction of a workflow Calvin built and used at Thinkific.",
+    "takeaway": "Codex reasoning and a real local relay. Synthetic inputs. Original company code excluded.",
+    "evidence": {
+      "execution": "actual local execution / synthetic inputs",
+      "created_at": "2026-10-07T23:18:27.568487+00:00",
+      "historical_stack": "Claude / Confluence / Grok Bot / Drive / Cursor",
+      "reconstruction_stack": "Codex / Python / local inbox-outbox / small web application"
+    },
+    "events": [
+      {
+        "id": 1,
+        "at": "2026-10-07T23:18:27.654023+00:00",
+        "phase": "ready",
+        "actor": "controller",
+        "title": "Reconstruction initialized",
+        "evidence": {
+          "synthetic": true,
+          "human_approvals": "Not yet supplied; never simulated in this run."
+        }
+      }
+    ]
+  },
+  {
+    "duration": 30,
+    "title": "Adoption was comparable. Usage wasn’t.",
+    "subtitle": "The problem came before the placement question.",
+    "takeaway": "Certification dashboard access: 22 / 100 active admins. Action reach: 14 / 100. All values are synthetic.",
+    "evidence": {
+      "source": "synthetic usage.csv",
+      "source_sha256": "3e64e87d3f4b4fb67fa742912d5d47fda382e8a4f0540f06e4c1e58f9fa3da48",
+      "rows": [
+        {
+          "product": "certifications",
+          "eligible_admins": 120,
+          "active_product_admins": 100,
+          "dashboard_visitors": 22,
+          "dashboard_actions": 14,
+          "period_days": 28,
+          "adoption": 0.8333,
+          "access": 0.22,
+          "engagement": 0.14
+        },
+        {
+          "product": "courses",
+          "eligible_admins": 120,
+          "active_product_admins": 102,
+          "dashboard_visitors": 61,
+          "dashboard_actions": 44,
+          "period_days": 28,
+          "adoption": 0.85,
+          "access": 0.598,
+          "engagement": 0.4314
+        },
+        {
+          "product": "communities",
+          "eligible_admins": 120,
+          "active_product_admins": 98,
+          "dashboard_visitors": 57,
+          "dashboard_actions": 40,
+          "period_days": 28,
+          "adoption": 0.8167,
+          "access": 0.5816,
+          "engagement": 0.4082
+        }
+      ],
+      "definitions": {
+        "adoption": "Unique active product admins / eligible admins",
+        "access": "Unique dashboard visitors / active product admins",
+        "engagement": "Unique admins taking at least one dashboard action / active product admins",
+        "window": "Same 28-day window; matched synthetic admin populations. Each row is a distinct product cohort, not randomized treatment."
+      },
+      "observation": "Certification adoption is comparable, but dashboard access and meaningful usage are lower.",
+      "hypothesis": "A link at the right workflow step may improve discovery. The data does not prove the cause or the effect of a CTA.",
+      "claim_boundary": "All values are synthetic. No historical dashboard-access or CTA-uplift metrics are asserted."
+    },
+    "events": [
+      {
+        "id": 2,
+        "at": "2026-10-07T23:18:27.735494+00:00",
+        "phase": "insight",
+        "actor": "authoritative-analysis-worker",
+        "title": "Usage insight precedes the placement question",
+        "evidence": {
+          "source": "synthetic usage.csv",
+          "source_sha256": "3e64e87d3f4b4fb67fa742912d5d47fda382e8a4f0540f06e4c1e58f9fa3da48",
+          "rows": [
+            {
+              "product": "certifications",
+              "eligible_admins": 120,
+              "active_product_admins": 100,
+              "dashboard_visitors": 22,
+              "dashboard_actions": 14,
+              "period_days": 28,
+              "adoption": 0.8333,
+              "access": 0.22,
+              "engagement": 0.14
+            },
+            {
+              "product": "courses",
+              "eligible_admins": 120,
+              "active_product_admins": 102,
+              "dashboard_visitors": 61,
+              "dashboard_actions": 44,
+              "period_days": 28,
+              "adoption": 0.85,
+              "access": 0.598,
+              "engagement": 0.4314
+            },
+            {
+              "product": "communities",
+              "eligible_admins": 120,
+              "active_product_admins": 98,
+              "dashboard_visitors": 57,
+              "dashboard_actions": 40,
+              "period_days": 28,
+              "adoption": 0.8167,
+              "access": 0.5816,
+              "engagement": 0.4082
+            }
+          ],
+          "definitions": {
+            "adoption": "Unique active product admins / eligible admins",
+            "access": "Unique dashboard visitors / active product admins",
+            "engagement": "Unique admins taking at least one dashboard action / active product admins",
+            "window": "Same 28-day window; matched synthetic admin populations. Each row is a distinct product cohort, not randomized treatment."
+          },
+          "observation": "Certification adoption is comparable, but dashboard access and meaningful usage are lower.",
+          "hypothesis": "A link at the right workflow step may improve discovery. The data does not prove the cause or the effect of a CTA.",
+          "claim_boundary": "All values are synthetic. No historical dashboard-access or CTA-uplift metrics are asserted."
+        }
+      }
+    ]
+  },
+  {
+    "duration": 30,
+    "title": "Investigate before adding a link.",
+    "subtitle": "Strategy and challenger contributions came from real Codex work.",
+    "takeaway": "Discoverability, task timing, report value and permissions remain competing explanations.",
+    "evidence": {
+      "proposals": [
+        {
+          "role": "challenger",
+          "source": "codex-session",
+          "submitted_at": "2026-10-07T23:20:13.873592+00:00",
+          "provenance": "Real Codex analysis of exported synthetic evidence; not historical reasoning.",
+          "observations": [
+            "Validator corrected a deliberately seeded denominator mismatch: overview 71/155 exposed active admins (45.8%); within-item 49/175 (28.0%).",
+            "Matched denominators make the comparison interpretable; they do not make distinct cohorts comparable treatments."
+          ],
+          "hypotheses": [
+            "Low discovery may explain lower certification dashboard access.",
+            "Lower dashboard value, less frequent reporting needs, or access friction may also explain it; adoption parity does not eliminate these."
+          ],
+          "alternatives": [
+            "Test an overview CTA and inspect meaningful dashboard actions, not clicks alone.",
+            "If more visits do not translate into useful actions, investigate dashboard relevance and task completion before adding more links."
+          ],
+          "recommendation": "Treat overview placement as a low-cost hypothesis test, not a causal conclusion. Cross-product association and three fictional feedback notes support exploration, not a proven winner. Keep the within-program option available for focused investigation."
+        },
+        {
+          "role": "strategy",
+          "source": "codex-session",
+          "submitted_at": "2026-10-07T23:18:56.923107+00:00",
+          "provenance": "Real Codex analysis of exported synthetic evidence; this is not a record of historical Thinkific reasoning.",
+          "observations": [
+            "Within the same 28-day window, certification product adoption is 100/120 (83.3%), compared with courses 102/120 (85.0%) and communities 98/120 (81.7%).",
+            "Certification dashboard access is 22/100 active admins (22.0%), versus courses 61/102 (59.8%) and communities 57/98 (58.2%). Dashboard action reach is 14/100 (14.0%), versus 44/102 (43.1%) and 40/98 (40.8%).",
+            "Synthetic feedback describes overview-based triage, comparison across programs, and separate focused editing tasks. Three fictional notes cannot establish representativeness.",
+            "Distinct product cohorts are not a randomized comparison; comparable adoption does not establish comparable reporting need."
+          ],
+          "hypotheses": [
+            "Discoverability: admins may not encounter the reporting entry point during their usual certification workflow.",
+            "Workflow timing: an overview supports monitoring and comparison; a program editor may interrupt settings work.",
+            "Alternative explanation: certification reporting may provide less useful information, serve a less frequent task, have unfamiliar terminology, or face access or performance friction. The current export cannot distinguish these."
+          ],
+          "alternatives": [
+            "Overview-level Analytics CTA: supports cross-program monitoring and comparison; risk is insufficient visibility for admins entering directly into a program.",
+            "Program-level Analytics CTA with program filter: supports focused investigation; risk is adding an action during settings work and obscuring cross-program comparison.",
+            "Retain placement and improve report value, terminology, or access: appropriate if follow-up evidence identifies those issues; current evidence is insufficient to prioritize it."
+          ],
+          "recommendation": "Investigate contextual discoverability as a low-effort test, with overview placement as a provisional candidate based on the synthetic feedback. Request comparison of existing dashboard links by placement using consistent exposure denominators before finalizing design. Track CTA exposure, click-through among exposed admins, unique dashboard access and meaningful actions among active certification admins, alongside task completion and accidental navigation. Do not assert causation or measured uplift."
+        }
+      ]
+    },
+    "events": [
+      {
+        "id": 3,
+        "at": "2026-10-07T23:18:56.923877+00:00",
+        "phase": "exploration",
+        "actor": "strategy",
+        "title": "Strategy contribution captured",
+        "evidence": {
+          "role": "strategy",
+          "source": "codex-session",
+          "submitted_at": "2026-10-07T23:18:56.923107+00:00",
+          "provenance": "Real Codex analysis of exported synthetic evidence; this is not a record of historical Thinkific reasoning.",
+          "observations": [
+            "Within the same 28-day window, certification product adoption is 100/120 (83.3%), compared with courses 102/120 (85.0%) and communities 98/120 (81.7%).",
+            "Certification dashboard access is 22/100 active admins (22.0%), versus courses 61/102 (59.8%) and communities 57/98 (58.2%). Dashboard action reach is 14/100 (14.0%), versus 44/102 (43.1%) and 40/98 (40.8%).",
+            "Synthetic feedback describes overview-based triage, comparison across programs, and separate focused editing tasks. Three fictional notes cannot establish representativeness.",
+            "Distinct product cohorts are not a randomized comparison; comparable adoption does not establish comparable reporting need."
+          ],
+          "hypotheses": [
+            "Discoverability: admins may not encounter the reporting entry point during their usual certification workflow.",
+            "Workflow timing: an overview supports monitoring and comparison; a program editor may interrupt settings work.",
+            "Alternative explanation: certification reporting may provide less useful information, serve a less frequent task, have unfamiliar terminology, or face access or performance friction. The current export cannot distinguish these."
+          ],
+          "alternatives": [
+            "Overview-level Analytics CTA: supports cross-program monitoring and comparison; risk is insufficient visibility for admins entering directly into a program.",
+            "Program-level Analytics CTA with program filter: supports focused investigation; risk is adding an action during settings work and obscuring cross-program comparison.",
+            "Retain placement and improve report value, terminology, or access: appropriate if follow-up evidence identifies those issues; current evidence is insufficient to prioritize it."
+          ],
+          "recommendation": "Investigate contextual discoverability as a low-effort test, with overview placement as a provisional candidate based on the synthetic feedback. Request comparison of existing dashboard links by placement using consistent exposure denominators before finalizing design. Track CTA exposure, click-through among exposed admins, unique dashboard access and meaningful actions among active certification admins, alongside task completion and accidental navigation. Do not assert causation or measured uplift."
+        }
+      },
+      {
+        "id": 8,
+        "at": "2026-10-07T23:20:13.874282+00:00",
+        "phase": "exploration",
+        "actor": "challenger",
+        "title": "Challenger contribution captured",
+        "evidence": {
+          "role": "challenger",
+          "source": "codex-session",
+          "submitted_at": "2026-10-07T23:20:13.873592+00:00",
+          "provenance": "Real Codex analysis of exported synthetic evidence; not historical reasoning.",
+          "observations": [
+            "Validator corrected a deliberately seeded denominator mismatch: overview 71/155 exposed active admins (45.8%); within-item 49/175 (28.0%).",
+            "Matched denominators make the comparison interpretable; they do not make distinct cohorts comparable treatments."
+          ],
+          "hypotheses": [
+            "Low discovery may explain lower certification dashboard access.",
+            "Lower dashboard value, less frequent reporting needs, or access friction may also explain it; adoption parity does not eliminate these."
+          ],
+          "alternatives": [
+            "Test an overview CTA and inspect meaningful dashboard actions, not clicks alone.",
+            "If more visits do not translate into useful actions, investigate dashboard relevance and task completion before adding more links."
+          ],
+          "recommendation": "Treat overview placement as a low-cost hypothesis test, not a causal conclusion. Cross-product association and three fictional feedback notes support exploration, not a proven winner. Keep the within-program option available for focused investigation."
+        }
+      },
+      {
+        "id": 9,
+        "at": "2026-10-07T23:20:19.180429+00:00",
+        "phase": "exploration",
+        "actor": "design",
+        "title": "Design contribution captured",
+        "evidence": {
+          "role": "design",
+          "source": "codex-session",
+          "submitted_at": "2026-10-07T23:20:19.179873+00:00",
+          "provenance": "Real Codex design recommendation based on validated synthetic evidence; requires human decision.",
+          "observations": [
+            "Synthetic task evidence favors overview-based monitoring and cross-program comparison.",
+            "Validated cross-product overview click-through is higher, but selection and workflow differences remain."
+          ],
+          "alternatives": [
+            "Overview: show a visible View certification analytics link beside the program-list heading; open all-program analytics. Fits monitoring and comparison.",
+            "Within-program: show View analytics for this program; preserve the selected program filter. Fits focused investigation but may distract during editing."
+          ],
+          "recommendation": "Recommend an overview-level View certification analytics link for this demonstration, pending human approval. Use semantic link navigation, visible keyboard focus, descriptive accessible text, and an Analytics heading with explicit All programs scope. Retain a Back to certifications link. Record CTA exposure and click with placement and scope; measure unique clickers/exposed active admins plus dashboard visitors and meaningful-action admins/active certification admins over the same 28-day window. Check editing-task completion and accidental navigation as guardrails. A click alone does not demonstrate customer value; no uplift is asserted.",
+          "hypotheses": [
+            "A visible entry point at the overview monitoring step may improve discovery without interrupting program editing. Its effect remains unmeasured."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "duration": 30,
+    "title": "Bring missing evidence across the boundary.",
+    "subtitle": "Request → trusted analysis worker → response → notification.",
+    "takeaway": "The scoped agent tools cannot query raw data. The worker returns aggregate placement evidence through the relay.",
+    "evidence": {
+      "relay_events": [
+        {
+          "id": 4,
+          "at": "2026-10-07T23:19:00.384797+00:00",
+          "phase": "request",
+          "actor": "strategy",
+          "title": "Missing evidence requested through _outbox",
+          "evidence": {
+            "id": "placement-001",
+            "operation": "link_usage",
+            "requested_at": "2026-10-07T23:19:00.384252+00:00",
+            "question": "How do contextual dashboard links perform on overview versus within-item pages in other product areas?",
+            "status": "pending",
+            "provenance": "Reconstruction request; fixed aggregate operation."
+          }
+        },
+        {
+          "id": 5,
+          "at": "2026-10-07T23:19:48.909964+00:00",
+          "phase": "response",
+          "actor": "authoritative-analysis-worker",
+          "title": "Analysis returned through _inbox",
+          "evidence": {
+            "id": "placement-001",
+            "request_sha256": "31abaada8c1348facd2fed62ad59570e3c2d65e5ab0372a8dfca1b0b3c737e08",
+            "completed_at": "2026-10-07T23:19:48.909165+00:00",
+            "source": "synthetic link_usage.csv",
+            "source_sha256": "d3f630c16017116bcdc715012b6040a690a15e2dfd53061a906ee1857c4fe754",
+            "window_days": 28,
+            "rows": [
+              {
+                "product": "courses",
+                "placement": "overview",
+                "exposed_active_admins": 80,
+                "unique_clickers": 38,
+                "period_days": 28
+              },
+              {
+                "product": "courses",
+                "placement": "within_item",
+                "exposed_active_admins": 90,
+                "unique_clickers": 25,
+                "period_days": 28
+              },
+              {
+                "product": "communities",
+                "placement": "overview",
+                "exposed_active_admins": 75,
+                "unique_clickers": 33,
+                "period_days": 28
+              },
+              {
+                "product": "communities",
+                "placement": "within_item",
+                "exposed_active_admins": 85,
+                "unique_clickers": 24,
+                "period_days": 28
+              }
+            ],
+            "aggregates": [
+              {
+                "placement": "overview",
+                "unique_clickers": 71,
+                "exposed_active_admins": 155,
+                "rate": 0.4581
+              },
+              {
+                "placement": "within_item",
+                "unique_clickers": 49,
+                "exposed_active_admins": 175,
+                "rate": 0.28
+              }
+            ],
+            "population": "Distinct product cohorts; pooled numerator and exposure denominator. Admins are unique within each row. Not a randomized placement experiment.",
+            "seeded_failure": {
+              "label": "Deliberately seeded demonstration failure, not a historical incident",
+              "claim": "Overview links: 29.6%; within-item links: 28.0% — little difference.",
+              "overview_denominator": "240 eligible admins (wrong population)",
+              "within_item_denominator": "175 exposed active admins",
+              "reported_overview_rate": 0.2958,
+              "reported_within_item_rate": 0.28
+            },
+            "limitation": "Cross-product associations inform a hypothesis; placement, audience, and workflow differences may explain results."
+          }
+        },
+        {
+          "id": 6,
+          "at": "2026-10-07T23:19:49.014189+00:00",
+          "phase": "notification",
+          "actor": "data-agent",
+          "title": "Group notified: requested analysis has arrived",
+          "evidence": {
+            "id": "placement-001",
+            "response_source": "synthetic link_usage.csv",
+            "status": "arrived"
+          }
+        }
+      ],
+      "pending_requests": []
+    },
+    "events": [
+      {
+        "id": 4,
+        "at": "2026-10-07T23:19:00.384797+00:00",
+        "phase": "request",
+        "actor": "strategy",
+        "title": "Missing evidence requested through _outbox",
+        "evidence": {
+          "id": "placement-001",
+          "operation": "link_usage",
+          "requested_at": "2026-10-07T23:19:00.384252+00:00",
+          "question": "How do contextual dashboard links perform on overview versus within-item pages in other product areas?",
+          "status": "pending",
+          "provenance": "Reconstruction request; fixed aggregate operation."
+        }
+      },
+      {
+        "id": 5,
+        "at": "2026-10-07T23:19:48.909964+00:00",
+        "phase": "response",
+        "actor": "authoritative-analysis-worker",
+        "title": "Analysis returned through _inbox",
+        "evidence": {
+          "id": "placement-001",
+          "request_sha256": "31abaada8c1348facd2fed62ad59570e3c2d65e5ab0372a8dfca1b0b3c737e08",
+          "completed_at": "2026-10-07T23:19:48.909165+00:00",
+          "source": "synthetic link_usage.csv",
+          "source_sha256": "d3f630c16017116bcdc715012b6040a690a15e2dfd53061a906ee1857c4fe754",
+          "window_days": 28,
+          "rows": [
+            {
+              "product": "courses",
+              "placement": "overview",
+              "exposed_active_admins": 80,
+              "unique_clickers": 38,
+              "period_days": 28
+            },
+            {
+              "product": "courses",
+              "placement": "within_item",
+              "exposed_active_admins": 90,
+              "unique_clickers": 25,
+              "period_days": 28
+            },
+            {
+              "product": "communities",
+              "placement": "overview",
+              "exposed_active_admins": 75,
+              "unique_clickers": 33,
+              "period_days": 28
+            },
+            {
+              "product": "communities",
+              "placement": "within_item",
+              "exposed_active_admins": 85,
+              "unique_clickers": 24,
+              "period_days": 28
+            }
+          ],
+          "aggregates": [
+            {
+              "placement": "overview",
+              "unique_clickers": 71,
+              "exposed_active_admins": 155,
+              "rate": 0.4581
+            },
+            {
+              "placement": "within_item",
+              "unique_clickers": 49,
+              "exposed_active_admins": 175,
+              "rate": 0.28
+            }
+          ],
+          "population": "Distinct product cohorts; pooled numerator and exposure denominator. Admins are unique within each row. Not a randomized placement experiment.",
+          "seeded_failure": {
+            "label": "Deliberately seeded demonstration failure, not a historical incident",
+            "claim": "Overview links: 29.6%; within-item links: 28.0% — little difference.",
+            "overview_denominator": "240 eligible admins (wrong population)",
+            "within_item_denominator": "175 exposed active admins",
+            "reported_overview_rate": 0.2958,
+            "reported_within_item_rate": 0.28
+          },
+          "limitation": "Cross-product associations inform a hypothesis; placement, audience, and workflow differences may explain results."
+        }
+      },
+      {
+        "id": 6,
+        "at": "2026-10-07T23:19:49.014189+00:00",
+        "phase": "notification",
+        "actor": "data-agent",
+        "title": "Group notified: requested analysis has arrived",
+        "evidence": {
+          "id": "placement-001",
+          "response_source": "synthetic link_usage.csv",
+          "status": "arrived"
+        }
+      }
+    ]
+  },
+  {
+    "duration": 30,
+    "title": "A wrong denominator changed the story.",
+    "subtitle": "A deliberately seeded demonstration failure, not a historical incident.",
+    "takeaway": "29.6% used eligible admins. Corrected overview click-through is 45.8% of exposed admins, versus 28.0% within-item. Association is not causation.",
+    "evidence": {
+      "validation": {
+        "seeded_failure_detected": true,
+        "reason": "Overview used eligible admins while within-item used exposed active admins. Compare like denominators.",
+        "corrected": {
+          "overview": {
+            "placement": "overview",
+            "unique_clickers": 71,
+            "exposed_active_admins": 155,
+            "rate": 0.4581
+          },
+          "within_item": {
+            "placement": "within_item",
+            "unique_clickers": 49,
+            "exposed_active_admins": 175,
+            "rate": 0.28
+          }
+        },
+        "reconsideration": "Overview remains a useful candidate, not a proven winner: selection and context differ. Combine with workflow evidence, then measure the shipped CTA.",
+        "synthetic": true
+      },
+      "placement": "overview",
+      "rationale": "Add an explicit View certification analytics link beside the program-list heading, opening all-program analytics. The corrected comparison and synthetic workflow notes support testing it; selection effects and dashboard value remain alternative explanations.",
+      "design": [
+        {
+          "role": "design",
+          "source": "codex-session",
+          "submitted_at": "2026-10-07T23:20:19.179873+00:00",
+          "provenance": "Real Codex design recommendation based on validated synthetic evidence; requires human decision.",
+          "observations": [
+            "Synthetic task evidence favors overview-based monitoring and cross-program comparison.",
+            "Validated cross-product overview click-through is higher, but selection and workflow differences remain."
+          ],
+          "alternatives": [
+            "Overview: show a visible View certification analytics link beside the program-list heading; open all-program analytics. Fits monitoring and comparison.",
+            "Within-program: show View analytics for this program; preserve the selected program filter. Fits focused investigation but may distract during editing."
+          ],
+          "recommendation": "Recommend an overview-level View certification analytics link for this demonstration, pending human approval. Use semantic link navigation, visible keyboard focus, descriptive accessible text, and an Analytics heading with explicit All programs scope. Retain a Back to certifications link. Record CTA exposure and click with placement and scope; measure unique clickers/exposed active admins plus dashboard visitors and meaningful-action admins/active certification admins over the same 28-day window. Check editing-task completion and accidental navigation as guardrails. A click alone does not demonstrate customer value; no uplift is asserted.",
+          "hypotheses": [
+            "A visible entry point at the overview monitoring step may improve discovery without interrupting program editing. Its effect remains unmeasured."
+          ]
+        }
+      ]
+    },
+    "events": [
+      {
+        "id": 7,
+        "at": "2026-10-07T23:19:49.016093+00:00",
+        "phase": "validation",
+        "actor": "validator",
+        "title": "Mismatched denominators detected and corrected",
+        "evidence": {
+          "seeded_failure_detected": true,
+          "reason": "Overview used eligible admins while within-item used exposed active admins. Compare like denominators.",
+          "corrected": {
+            "overview": {
+              "placement": "overview",
+              "unique_clickers": 71,
+              "exposed_active_admins": 155,
+              "rate": 0.4581
+            },
+            "within_item": {
+              "placement": "within_item",
+              "unique_clickers": 49,
+              "exposed_active_admins": 175,
+              "rate": 0.28
+            }
+          },
+          "reconsideration": "Overview remains a useful candidate, not a proven winner: selection and context differ. Combine with workflow evidence, then measure the shipped CTA.",
+          "synthetic": true
+        }
+      },
+      {
+        "id": 10,
+        "at": "2026-10-07T23:22:34.481659+00:00",
+        "phase": "decision",
+        "actor": "Codex implementation default",
+        "title": "Candidate placement selected; human review remains pending",
+        "evidence": {
+          "placement": "overview",
+          "rationale": "Add an explicit View certification analytics link beside the program-list heading, opening all-program analytics. The corrected comparison and synthetic workflow notes support testing it; selection effects and dashboard value remain alternative explanations.",
+          "approval": "This is an implementation choice, not Calvin's historical decision or manual approval."
+        }
+      }
+    ]
+  },
+  {
+    "duration": 35,
+    "title": "Build a working improvement.",
+    "subtitle": "A contextual analytics link beside the program-list heading.",
+    "takeaway": "The link opens all-program analytics. HTTP, telemetry and JavaScript unit checks validate behavior; visual browser verification is unavailable.",
+    "evidence": {
+      "candidate_commit": "d14df2a57eb05941a868563ded7a7ca326dd1167",
+      "qa": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Exactly one contextual CTA at selected placement",
+            "passed": true
+          },
+          {
+            "name": "Destination serves analytics view and useful dashboard action",
+            "passed": true
+          },
+          {
+            "name": "Overview does not impose a program filter; within-item preserves it",
+            "passed": true
+          },
+          {
+            "name": "Baseline has no contextual CTA",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /../data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /api/raw-data",
+            "passed": true
+          },
+          {
+            "name": "Event receiver stores QA-marked event separately from customer outcomes",
+            "passed": true
+          },
+          {
+            "name": "Reconstruction and synthetic labels remain visible",
+            "passed": true
+          }
+        ],
+        "sha256": "1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f",
+        "at": "2026-10-07T23:25:46.006380+00:00",
+        "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
+        "production": false
+      },
+      "artifact": "Captured candidate application HTML is embedded in the playback; not a screenshot."
+    },
+    "events": [
+      {
+        "id": 11,
+        "at": "2026-10-07T23:22:34.690955+00:00",
+        "phase": "build",
+        "actor": "Codex engineering",
+        "title": "Working CTA implemented on a local feature branch",
+        "evidence": {
+          "placement": "overview",
+          "commit": "2a1e58f222a16712494b68546812c8fa6261a690",
+          "sha256": "7247ecdee957f0b7dbbc3776dd90435bdd54fe4358b115fc0ae3442784231cb5",
+          "method": "Actual generated application and Git commit; no Cursor or historical code execution claimed."
+        }
+      },
+      {
+        "id": 12,
+        "at": "2026-10-07T23:22:36.812566+00:00",
+        "phase": "qa",
+        "actor": "QA worker",
+        "title": "Candidate checks completed",
+        "evidence": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "Exactly one contextual CTA at selected placement",
+              "passed": true
+            },
+            {
+              "name": "Destination serves analytics view and useful dashboard action",
+              "passed": true
+            },
+            {
+              "name": "Overview does not impose a program filter; within-item preserves it",
+              "passed": true
+            },
+            {
+              "name": "Baseline has no contextual CTA",
+              "passed": true
+            },
+            {
+              "name": "Raw dataset route denied: /data/usage.csv",
+              "passed": true
+            },
+            {
+              "name": "Raw dataset route denied: /../data/usage.csv",
+              "passed": true
+            },
+            {
+              "name": "Raw dataset route denied: /api/raw-data",
+              "passed": true
+            },
+            {
+              "name": "Event receiver stores QA-marked event separately from customer outcomes",
+              "passed": true
+            },
+            {
+              "name": "Reconstruction and synthetic labels remain visible",
+              "passed": true
+            }
+          ],
+          "sha256": "7247ecdee957f0b7dbbc3776dd90435bdd54fe4358b115fc0ae3442784231cb5",
+          "at": "2026-10-07T23:22:36.811700+00:00",
+          "scope": "Actual HTTP, HTML structure and event-receiver checks. Browser interaction is recorded separately; these checks alone do not execute JavaScript.",
+          "production": false
+        }
+      },
+      {
+        "id": 15,
+        "at": "2026-10-07T23:25:43.723213+00:00",
+        "phase": "build",
+        "actor": "Codex engineering",
+        "title": "Working CTA implemented on a local feature branch",
+        "evidence": {
+          "placement": "overview",
+          "commit": "d14df2a57eb05941a868563ded7a7ca326dd1167",
+          "sha256": "1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f",
+          "method": "Actual generated application and Git commit; no Cursor or historical code execution claimed."
+        }
+      },
+      {
+        "id": 16,
+        "at": "2026-10-07T23:25:46.007347+00:00",
+        "phase": "qa",
+        "actor": "QA worker",
+        "title": "Candidate checks completed",
+        "evidence": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "Exactly one contextual CTA at selected placement",
+              "passed": true
+            },
+            {
+              "name": "Destination serves analytics view and useful dashboard action",
+              "passed": true
+            },
+            {
+              "name": "Overview does not impose a program filter; within-item preserves it",
+              "passed": true
+            },
+            {
+              "name": "Baseline has no contextual CTA",
+              "passed": true
+            },
+            {
+              "name": "Raw dataset route denied: /data/usage.csv",
+              "passed": true
+            },
+            {
+              "name": "Raw dataset route denied: /../data/usage.csv",
+              "passed": true
+            },
+            {
+              "name": "Raw dataset route denied: /api/raw-data",
+              "passed": true
+            },
+            {
+              "name": "Event receiver stores QA-marked event separately from customer outcomes",
+              "passed": true
+            },
+            {
+              "name": "Reconstruction and synthetic labels remain visible",
+              "passed": true
+            }
+          ],
+          "sha256": "1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f",
+          "at": "2026-10-07T23:25:46.006380+00:00",
+          "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
+          "production": false
+        }
+      }
+    ]
+  },
+  {
+    "duration": 20,
+    "title": "Release follows real review.",
+    "subtitle": "No human or historical EM approval is fabricated.",
+    "takeaway": "Release locally after manual review and separate approval of the exact tested change. Measure useful activity; no CTA uplift is asserted.",
+    "evidence": {
+      "released": false,
+      "human_review": null,
+      "separate_reviewer": {
+        "reviewer": "Codex independent code reviewer",
+        "note": "Independent static code review of candidate d14df2a57eb05941a868563ded7a7ca326dd1167 / SHA-256 1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f: reviewed relay scope, idempotency and locking, denominator validation, approval freshness, separate gates, production hash checks, proposal provenance, filtering and QA markers. Independently ran real-inline-JavaScript unit tests: exposure, click, navigation, QA propagation, useful action, filtered metrics and unknown scope passed. Reviewed Python test sources and truthful evidence-log playback labeling. Browser interaction and visual layout remain unverified. This is code review only, not human manual approval or approval of historical claims. Learning reuse currently demonstrates prompt assembly, not completed subsequent reasoning.",
+        "sha256": "1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f",
+        "at": "2026-10-07T23:28:43.802946+00:00",
+        "type": "separate review; may be a disclosed Codex reviewer, not a fictional EM"
+      },
+      "production_qa": []
+    },
+    "events": [
+      {
+        "id": 17,
+        "at": "2026-10-07T23:28:33.244199+00:00",
+        "phase": "approval",
+        "actor": "Codex independent code reviewer",
+        "title": "Separate review recorded",
+        "evidence": {
+          "reviewer": "Codex independent code reviewer",
+          "note": "Independent static code review of candidate d14df2a57eb05941a868563ded7a7ca326dd1167 / SHA-256 1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f: reviewed relay scope, idempotency and locking, denominator validation, approval freshness, separate gates, production hash checks, proposal provenance, filtered synthetic application behavior and QA-marker propagation. Reviewed test sources and truthful playback labeling. Browser interaction and visual layout are unverified; approval is code review only, not human manual approval or approval of historical claims. Learning reuse currently demonstrates prompt assembly, not completed subsequent reasoning.",
+          "sha256": "1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f",
+          "at": "2026-10-07T23:28:33.241783+00:00",
+          "type": "separate review; may be a disclosed Codex reviewer, not a fictional EM"
+        }
+      },
+      {
+        "id": 18,
+        "at": "2026-10-07T23:28:43.804593+00:00",
+        "phase": "approval",
+        "actor": "Codex independent code reviewer",
+        "title": "Separate review recorded",
+        "evidence": {
+          "reviewer": "Codex independent code reviewer",
+          "note": "Independent static code review of candidate d14df2a57eb05941a868563ded7a7ca326dd1167 / SHA-256 1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f: reviewed relay scope, idempotency and locking, denominator validation, approval freshness, separate gates, production hash checks, proposal provenance, filtering and QA markers. Independently ran real-inline-JavaScript unit tests: exposure, click, navigation, QA propagation, useful action, filtered metrics and unknown scope passed. Reviewed Python test sources and truthful evidence-log playback labeling. Browser interaction and visual layout remain unverified. This is code review only, not human manual approval or approval of historical claims. Learning reuse currently demonstrates prompt assembly, not completed subsequent reasoning.",
+          "sha256": "1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f",
+          "at": "2026-10-07T23:28:43.802946+00:00",
+          "type": "separate review; may be a disclosed Codex reviewer, not a fictional EM"
+        }
+      }
+    ]
+  },
+  {
+    "duration": 20,
+    "title": "The learning returns to shared context.",
+    "subtitle": "Review → source of truth → context pack → next task.",
+    "takeaway": "Pending learnings are excluded. Approved lessons enter the next task prompt; the actual recorded state is shown below.",
+    "evidence": {
+      "context_pack": {
+        "version": 1,
+        "preferences": [
+          "Start from the customer problem.",
+          "Distinguish observations, hypotheses, decisions, and measured outcomes.",
+          "Challenge a recommendation with an alternative.",
+          "Require explicit human approval for release and new learnings."
+        ],
+        "learnings": [],
+        "historical_note": "Claude held the source of truth; Confluence held the Grok Bot context pack. Weekly refresh ran both ways. The Drive inbox/outbox handled on-demand deep-data requests."
+      },
+      "subsequent_task": null,
+      "learning_events": [
+        {
+          "id": 13,
+          "at": "2026-10-07T23:24:15.681820+00:00",
+          "phase": "learning",
+          "actor": "agent-workspace",
+          "title": "Proposed learning staged outside authoritative context",
+          "evidence": {
+            "id": "a175380bd66e",
+            "lesson": "For contextual dashboard links, compare exposed active admins over the same time window and measure useful dashboard actions alongside clicks. Treat cross-product differences as hypotheses, not causal evidence.",
+            "status": "pending",
+            "provenance": "Proposed lesson from synthetic reconstruction; not a durable career correction."
+          }
+        },
+        {
+          "id": 14,
+          "at": "2026-10-07T23:24:15.788417+00:00",
+          "phase": "sync",
+          "actor": "context-refresh-worker",
+          "title": "Two-way context refresh completed",
+          "evidence": {
+            "version": 1,
+            "cloud_to_truth": [],
+            "truth_to_cloud": "Authoritative preferences and approved learnings exported",
+            "excluded_pending": [
+              "a175380bd66e"
+            ],
+            "schedule": "Explicit reconstruction command; historical refresh was automatic weekly. No scheduler installed."
+          }
+        }
+      ]
+    },
+    "events": [
+      {
+        "id": 13,
+        "at": "2026-10-07T23:24:15.681820+00:00",
+        "phase": "learning",
+        "actor": "agent-workspace",
+        "title": "Proposed learning staged outside authoritative context",
+        "evidence": {
+          "id": "a175380bd66e",
+          "lesson": "For contextual dashboard links, compare exposed active admins over the same time window and measure useful dashboard actions alongside clicks. Treat cross-product differences as hypotheses, not causal evidence.",
+          "status": "pending",
+          "provenance": "Proposed lesson from synthetic reconstruction; not a durable career correction."
+        }
+      },
+      {
+        "id": 14,
+        "at": "2026-10-07T23:24:15.788417+00:00",
+        "phase": "sync",
+        "actor": "context-refresh-worker",
+        "title": "Two-way context refresh completed",
+        "evidence": {
+          "version": 1,
+          "cloud_to_truth": [],
+          "truth_to_cloud": "Authoritative preferences and approved learnings exported",
+          "excluded_pending": [
+            "a175380bd66e"
+          ],
+          "schedule": "Explicit reconstruction command; historical refresh was automatic weekly. No scheduler installed."
+        }
+      }
+    ]
+  }
+]

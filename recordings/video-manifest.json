@@ -1,0 +1,38 @@
+{
+  "format": "Captioned video of recorded event evidence; no browser footage or audio",
+  "frames": [
+    {
+      "path": "recordings/chapter-01.png",
+      "duration": 15
+    },
+    {
+      "path": "recordings/chapter-02.png",
+      "duration": 30
+    },
+    {
+      "path": "recordings/chapter-03.png",
+      "duration": 30
+    },
+    {
+      "path": "recordings/chapter-04.png",
+      "duration": 30
+    },
+    {
+      "path": "recordings/chapter-05.png",
+      "duration": 30
+    },
+    {
+      "path": "recordings/chapter-06.png",
+      "duration": 35
+    },
+    {
+      "path": "recordings/chapter-07.png",
+      "duration": 20
+    },
+    {
+      "path": "recordings/chapter-08.png",
+      "duration": 20
+    }
+  ],
+  "output": "recordings/walkthrough.mp4"
+}

@@ -1,0 +1,77 @@
+"""Export a static, inspectable snapshot for GitHub Pages; never grant approvals."""
+import argparse
+import json
+import re
+from pathlib import Path
+from .core import ROOT, Demo, digest, now, write
+from .record import chapters
+
+
+def static_app(source):
+    source = source.replace('href="/"', 'href="index.html"')
+    source = source.replace('Demo workspace · All numbers are sample data', 'Interactive preview · All numbers are sample data')
+    start = source.index('async function track(')
+    end = source.index("document.querySelectorAll('[data-event]')", start)
+    source = source[:start] + """async function track(event,placement){document.getElementById('event-note').textContent='Preview interaction: '+event+' (browser only; no data sent or measured outcome).';}
+""" + source[end:]
+    return source
+
+
+def export(demo, output):
+    output = Path(output)
+    state = demo.public()
+    candidate_path = demo.base / 'application/index.html'
+    if not candidate_path.exists():
+        raise ValueError('Build an actual local candidate before exporting a snapshot.')
+    candidate = static_app(candidate_path.read_text())
+    baseline = static_app(demo.render(None, 'Captured baseline'))
+    captured_at = now()
+    payload = json.dumps(state, ensure_ascii=False).replace('<', '\\u003c')
+    workflow = (ROOT / 'web/workflow.html').read_text()
+    workflow = workflow.replace("const token='{{TOKEN}}';", 'const capturedState=' + payload + ';')
+    start = workflow.index('async function action(')
+    end = workflow.index('function selectPreview(', start)
+    workflow = workflow[:start] + "async function action(){notify('Saved run: approvals and workflow commands run in the local version.');}\n" + workflow[end:]
+    start = workflow.index('async function load(')
+    end = workflow.index("$('#refresh').onclick=load", start)
+    workflow = workflow[:start] + 'async function load(){state=JSON.parse(JSON.stringify(capturedState));render()}\n' + workflow[end:]
+    workflow = workflow.replace("$('#content').innerHTML=html;", """$('#content').innerHTML=html;
+    document.querySelectorAll('#content details.explore-details').forEach(section=>{
+      if(['Try the local release checks','Try the learning & context refresh'].includes(section.querySelector('summary').textContent))section.remove();
+    });""")
+    workflow = workflow.replace('ACTUAL LOCAL RUN · SYNTHETIC EVIDENCE', 'SAVED ACTUAL RUN · INTERACTIVE PREVIEW')
+    workflow = workflow.replace('Current demo status', 'Captured run status').replace('Refresh records', 'Reload snapshot')
+    workflow = workflow.replace('Activity from this Codex reconstruction.', 'Saved activity from this Codex reconstruction.')
+    workflow = workflow.replace('href="/walkthrough"', 'href="walkthrough.html"')
+    workflow = workflow.replace("'/baseline'", "'baseline.html'").replace("'/app'", "'app.html'")
+    workflow = workflow.replace('href="/app?qa=1"', 'href="app.html?qa=1"')
+    notice = ('<div class="disclosure"><strong>Hosted snapshot:</strong> captured on ' + captured_at[:10] + '. Explore saved outputs and try the prototype; this site does not run agents or change approvals. '
+              '<a href="manifest.json">Snapshot provenance</a> · <a href="run.json">Execution record</a></div>')
+    workflow = workflow.replace('<div class="layout">', notice + '<div class="layout">', 1)
+    values = chapters(demo)
+    # Include the completed follow-up reasoning, not just prompt assembly.
+    values[-1]['evidence']['applied_reasoning'] = [e['evidence'] for e in state['events'] if e['phase'] == 'reuse-result']
+    values[-1]['events'] += [e for e in state['events'] if e['phase'] == 'reuse-result']
+    recording = json.dumps({'chapters': values, 'run': state, 'candidate': candidate, 'baseline': baseline}, ensure_ascii=False).replace('<', '\\u003c')
+    playback = (ROOT / 'web/playback.html').read_text().replace('{{PAYLOAD}}', recording)
+    playback = playback.replace("const set=v=>$('#artifact').srcdoc=v;", "const set=v=>$('#artifact').src=v===recording.baseline?'baseline.html?qa=1':'app.html?qa=1';")
+    output.mkdir(parents=True, exist_ok=True)
+    for name, value in [('index.html', workflow), ('app.html', candidate), ('baseline.html', baseline), ('walkthrough.html', playback)]:
+        (output / name).write_text(value)
+    (output / '.nojekyll').write_text('')
+    write(output / 'run.json', state)
+    manifest = {'captured_at': captured_at, 'format': 'Static snapshot of actual local execution with interactive browser prototype', 'agent_inference': 'Recorded only; no live inference or background workers on the hosted site', 'prototype_changes': 'Browser-tab sample edits only; preview events are not sent to a server', 'local_candidate_sha256': digest(candidate_path), 'source_workflow_sha256': digest(ROOT / 'web/workflow.html'), 'snapshot_files': {name: digest(output / name) for name in ['index.html', 'app.html', 'baseline.html', 'walkthrough.html', 'run.json']}, 'released_locally': state['released'], 'manual_review': state['human_review'], 'separate_review': state['reviewer'], 'context_version': state['context_pack']['version'], 'publication': 'Prepared files only; export does not publish or approve a release'}
+    write(output / 'manifest.json', manifest)
+    return manifest
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--runtime')
+    parser.add_argument('--output', default='site')
+    args = parser.parse_args()
+    print(json.dumps(export(Demo(args.runtime), args.output), indent=2))
+
+
+if __name__ == '__main__':
+    main()

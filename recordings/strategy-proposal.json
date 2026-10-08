@@ -1,0 +1,23 @@
+{
+  "role": "strategy",
+  "value": {
+    "provenance": "Real Codex analysis of exported synthetic evidence; this is not a record of historical Thinkific reasoning.",
+    "observations": [
+      "Within the same 28-day window, certification product adoption is 100/120 (83.3%), compared with courses 102/120 (85.0%) and communities 98/120 (81.7%).",
+      "Certification dashboard access is 22/100 active admins (22.0%), versus courses 61/102 (59.8%) and communities 57/98 (58.2%). Dashboard action reach is 14/100 (14.0%), versus 44/102 (43.1%) and 40/98 (40.8%).",
+      "Synthetic feedback describes overview-based triage, comparison across programs, and separate focused editing tasks. Three fictional notes cannot establish representativeness.",
+      "Distinct product cohorts are not a randomized comparison; comparable adoption does not establish comparable reporting need."
+    ],
+    "hypotheses": [
+      "Discoverability: admins may not encounter the reporting entry point during their usual certification workflow.",
+      "Workflow timing: an overview supports monitoring and comparison; a program editor may interrupt settings work.",
+      "Alternative explanation: certification reporting may provide less useful information, serve a less frequent task, have unfamiliar terminology, or face access or performance friction. The current export cannot distinguish these."
+    ],
+    "alternatives": [
+      "Overview-level Analytics CTA: supports cross-program monitoring and comparison; risk is insufficient visibility for admins entering directly into a program.",
+      "Program-level Analytics CTA with program filter: supports focused investigation; risk is adding an action during settings work and obscuring cross-program comparison.",
+      "Retain placement and improve report value, terminology, or access: appropriate if follow-up evidence identifies those issues; current evidence is insufficient to prioritize it."
+    ],
+    "recommendation": "Investigate contextual discoverability as a low-effort test, with overview placement as a provisional candidate based on the synthetic feedback. Request comparison of existing dashboard links by placement using consistent exposure denominators before finalizing design. Track CTA exposure, click-through among exposed admins, unique dashboard access and meaningful actions among active certification admins, alongside task completion and accidental navigation. Do not assert causation or measured uplift."
+  }
+}
