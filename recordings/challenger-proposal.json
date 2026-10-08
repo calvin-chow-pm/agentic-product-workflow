@@ -1,0 +1,19 @@
+{
+  "role": "challenger",
+  "value": {
+    "provenance": "Real Codex analysis of exported synthetic evidence; not historical reasoning.",
+    "observations": [
+      "Validator corrected a deliberately seeded denominator mismatch: overview 71/155 exposed active admins (45.8%); within-item 49/175 (28.0%).",
+      "Matched denominators make the comparison interpretable; they do not make distinct cohorts comparable treatments."
+    ],
+    "hypotheses": [
+      "Low discovery may explain lower certification dashboard access.",
+      "Lower dashboard value, less frequent reporting needs, or access friction may also explain it; adoption parity does not eliminate these."
+    ],
+    "alternatives": [
+      "Test an overview CTA and inspect meaningful dashboard actions, not clicks alone.",
+      "If more visits do not translate into useful actions, investigate dashboard relevance and task completion before adding more links."
+    ],
+    "recommendation": "Treat overview placement as a low-cost hypothesis test, not a causal conclusion. Cross-product association and three fictional feedback notes support exploration, not a proven winner. Keep the within-program option available for focused investigation."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "exported_at": "2026-10-07T23:31:41.441466+00:00",
+  "duration_seconds": 210,
+  "format": "Edited evidence-log playback; not a browser screen recording",
+  "agent_reasoning": "Captured real Codex contributions; playback performs no new inference",
+  "human_review": null,
+  "released": false,
+  "candidate_sha256": "1a5e4899da92d7485fc587951adf9497d92504c155ae3801db556d2df024959f",
+  "run_sha256": "d0094213ac46079229d8315f44a8264660ee0f11af4367fa260c8f5b0b8e6333",
+  "playback_sha256": "2dc6f8090fad2cdd2ddaf2853a04aaa88d8b960d9abe3e5b0273a61f0e88b7d5",
+  "browser_verification": "Unavailable: security-policy check blocked browser automation",
+  "inputs": "Synthetic only",
+  "video": {
+    "file": "walkthrough.mp4",
+    "duration_seconds": 210,
+    "sha256": "6cf22dff85d3f7a6123be838a6d26af30dc317f44adfb3d5e911c5534dcb0dff",
+    "format": "Captioned, silent evidence-log walkthrough. No browser screen footage.",
+    "source_run_sha256": "d0094213ac46079229d8315f44a8264660ee0f11af4367fa260c8f5b0b8e6333",
+    "snapshot_current": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "role": "design",
+  "value": {
+    "provenance": "Real Codex design recommendation based on validated synthetic evidence; requires human decision.",
+    "observations": [
+      "Synthetic task evidence favors overview-based monitoring and cross-program comparison.",
+      "Validated cross-product overview click-through is higher, but selection and workflow differences remain."
+    ],
+    "alternatives": [
+      "Overview: show a visible View certification analytics link beside the program-list heading; open all-program analytics. Fits monitoring and comparison.",
+      "Within-program: show View analytics for this program; preserve the selected program filter. Fits focused investigation but may distract during editing."
+    ],
+    "recommendation": "Recommend an overview-level View certification analytics link for this demonstration, pending human approval. Use semantic link navigation, visible keyboard focus, descriptive accessible text, and an Analytics heading with explicit All programs scope. Retain a Back to certifications link. Record CTA exposure and click with placement and scope; measure unique clickers/exposed active admins plus dashboard visitors and meaningful-action admins/active certification admins over the same 28-day window. Check editing-task completion and accidental navigation as guardrails. A click alone does not demonstrate customer value; no uplift is asserted.",
+    "hypotheses": [
+      "A visible entry point at the overview monitoring step may improve discovery without interrupting program editing. Its effect remains unmeasured."
+    ]
+  }
+}

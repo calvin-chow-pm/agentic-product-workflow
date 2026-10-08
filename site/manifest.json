@@ -1,0 +1,20 @@
+{
+  "captured_at": "2026-10-08T18:24:58.099842+00:00",
+  "format": "Static snapshot of actual local execution with interactive browser prototype",
+  "agent_inference": "Recorded only; no live inference or background workers on the hosted site",
+  "prototype_changes": "Browser-tab sample edits only; preview events are not sent to a server",
+  "local_candidate_sha256": "5ed939ca54e0f3d78e8d7c963ad728c2b93d2a904cbf42d696fd1197cc0b7458",
+  "source_workflow_sha256": "94068aec1c4466c342b01ee312d94ca46fdc2e0bfc1de8c05f100d2b35d8dad3",
+  "snapshot_files": {
+    "index.html": "37016de7300e6d41b8ecf18880ee26686b4398b830a28c9ca526c1e42f675d11",
+    "app.html": "def53bad43664aeae5706e9e18de6b6a8ba47fe1e7e0299b3cab2af3f80e5868",
+    "baseline.html": "3f1bd650b6942a9416a118cd99f55d512e89c1b703f5c681353a8befd336cc81",
+    "walkthrough.html": "267754b13b431965c6997cba9f74848e3c9c82fad1ace628977a489051b9d6c1",
+    "run.json": "569fab42a5c4a4de7cbafb3347dec8a0ddd4ff747f7c59ceb2e5d4f0150fbe8e"
+  },
+  "released_locally": false,
+  "manual_review": null,
+  "separate_review": null,
+  "context_version": 2,
+  "publication": "Prepared files only; export does not publish or approve a release"
+}

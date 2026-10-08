@@ -1,0 +1,9 @@
+{
+  "provenance": "Entirely synthetic customer feedback; not historical quotations.",
+  "notes": [
+    {"id": "SYN-01", "role": "Training operations admin", "note": "I start in the program list when checking which programs need attention. I did not know there was a separate reporting page."},
+    {"id": "SYN-02", "role": "Program coordinator", "note": "When I am editing a program, I am focused on its settings. I review activity after I finish or from the overview."},
+    {"id": "SYN-03", "role": "Academy owner", "note": "I need to compare programs before deciding which one to investigate. A filtered report is useful once I have chosen one."}
+  ],
+  "counter_evidence": "These three fictional notes illustrate plausible needs; they cannot establish representativeness or prove the cause of lower dashboard usage."
+}

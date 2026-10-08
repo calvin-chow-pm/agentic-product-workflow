@@ -1,0 +1,43 @@
+// Execute the real sample-program script with a small DOM fixture, not browser QA.
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const html=fs.readFileSync('web/dashboard.html','utf8');
+const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+scripts.forEach(script=>new vm.Script(script));
+const store=new Map();
+function run(search='?view=overview&qa=1'){
+ const nodes=new Map();
+ const element=id=>{if(!nodes.has(id))nodes.set(id,{textContent:'',innerHTML:'',hidden:false,value:'',listeners:{},addEventListener(k,v){this.listeners[k]=v},showModal(){this.open=true},close(){this.open=false}});return nodes.get(id);};
+ const params=new URLSearchParams(search),view=params.get('view');
+ const context={params,view,sessionStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)},document:{getElementById:element,querySelectorAll:()=>[],addEventListener(){}}};
+ vm.createContext(context);vm.runInContext(scripts[1],context);
+ return {context,element,submit:()=>element('program-form').listeners.submit({preventDefault(){}})};
+}
+let app=run();
+let rows=app.element('program-rows').innerHTML;
+for(const id of ['first-aid','workplace-safety','professional-development'])assert.ok(rows.includes(`program=${id}&amp;qa=1`));
+assert.equal((rows.match(/class="renewals"/g)||[]).length,3);
+assert.equal((rows.match(/data-action="edit"/g)||[]).length,3);
+assert.equal((rows.match(/data-action="delete"/g)||[]).length,3);
+vm.runInContext("openProgramAction('workplace-safety','edit')",app.context);
+assert.equal(app.element('program-dialog').open,true);
+app.element('program-name').value='Safety & compliance <course>';
+app.element('template-name').value='Safety award';app.submit();
+assert.equal(app.element('program-dialog').open,false);
+assert.ok(app.element('program-rows').innerHTML.includes('Safety &amp; compliance &lt;course&gt;'));
+app=run('?view=program&program=workplace-safety');
+assert.equal(app.element('program-title').textContent,'Safety & compliance <course>');
+assert.equal(app.element('program-template').textContent,'Certificate template: Safety award');
+vm.runInContext("openProgramAction('workplace-safety','delete')",app.context);
+app.element('cancel-program').listeners.click();
+assert.equal(vm.runInContext('programs.length',app.context),3);
+vm.runInContext("openProgramAction('workplace-safety','delete')",app.context);app.submit();
+assert.equal(vm.runInContext('programs.length',app.context),2);
+assert.equal(app.element('program-title').textContent,'Program unavailable');
+assert.equal(app.element('total-renewals').textContent,25);
+assert.equal(app.element('total-issued').textContent,'857');
+app=run();assert.equal(vm.runInContext('programs.length',app.context),2);
+app.element('reset-programs').listeners.click();
+assert.equal(vm.runInContext('programs.length',app.context),3);
+assert.equal(app.element('total-issued').textContent,'1,248');
+assert.equal(app.element('program-count').textContent,3);
+console.log('PASS: all program links, QA marker, edit/save, safe text, navigation, delete cancellation/confirmation, totals, session persistence and reset.');

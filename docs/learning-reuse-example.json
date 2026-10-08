@@ -1,0 +1,25 @@
+{
+  "task": "Evaluate a contextual export link in the community workflow",
+  "context_version": 2,
+  "applied_learning_ids": [
+    "a175380bd66e"
+  ],
+  "task_prompt": "Evaluate a contextual export link in the community workflow. Apply these reviewed lessons:\n- For contextual dashboard links, compare exposed active admins over the same time window and measure useful dashboard actions alongside clicks. Treat cross-product differences as hypotheses, not causal evidence.",
+  "prompt_sha256": "9b8dcd2adc37e00b89e9b0521e7b5602348b25abde470acfce57e7efdcd063ea",
+  "completed_at": "2026-10-08T18:18:04.659913+00:00",
+  "actor": "Codex PM reasoning in this chat",
+  "observations": [
+    "The refreshed context requires comparable exposed-admin groups and useful actions beyond clicks.",
+    "The certification example provides cross-product dashboard-link evidence, but no evidence of community export needs or export-link performance."
+  ],
+  "hypothesis": "A contextual export link could help community admins who need to take data into a reporting workflow; whether overview or in-context placement helps remains untested.",
+  "evidence_request": "First establish which community admins need exports and at what step. For any placement comparison, use eligible active admins with export permission, record who actually sees each link, and compare unique clickers over the same 28-day window. Keep placement cohorts distinct and disclose differences.",
+  "measurement_plan": "Measure successful exports among exposed admins alongside clicks, with export failures and permission errors as guardrails. Do not count a click or attempted download as a completed export.",
+  "decision": "Do not choose a winning placement from certification-dashboard patterns alone. Establish the export need, then compare a reversible placement test using matched groups or randomized assignment where feasible.",
+  "applied_summary": [
+    "Requested comparable groups of admins who saw each link over the same time window.",
+    "Defined successful exports, rather than clicks alone, as the useful action.",
+    "Kept placement undecided because direct export evidence is missing."
+  ],
+  "scope": "Actual Codex reasoning completed in this chat from the refreshed demo prompt; an analysis and test plan, not an implemented export feature or measured outcome. Not an automatically running background agent."
+}
