@@ -4,7 +4,11 @@
 
 I noticed that certification analytics had lower dashboard access and usage than other product areas despite comparable product adoption. That prompted an investigation of the customer workflow, followed by a question about where to add a contextual analytics link. I connected strategy, design, analysis and delivery agents so that they could get missing evidence, work through alternatives, and implement the change.
 
-The original Analytics CTA shipped. My QA agent checked staging; I manually reviewed the ephemeral environment and GitHub checklist; my EM reviewed the PR; the engineering agent merged it; QA checked production. **No measured increase in dashboard usage is asserted.** The reconstructed candidate placement is a new choice using synthetic evidence, not a claim about the historical final placement.
+The original Analytics CTA shipped. My QA agent checked staging; I manually reviewed the ephemeral environment and GitHub checklist; my EM reviewed the PR; the engineering agent merged it; QA checked production. Dashboard click-through rose from **10% to 35% (+25 percentage points) over two weeks** among all certification users with dashboard access; **new active programs created increased approximately 10% month over month**. Higher-volume professional academies engaged more after clicking through, and recertification-enabled programs trended upward. These are user-confirmed historical observations, not synthetic demo results or isolated proof of causality. The reconstructed candidate placement is a new choice using synthetic evidence, not a claim about the historical final placement.
+
+Before this workflow, I partnered with Analytics to create the advanced certification dashboard. I defined segments, jobs, requirements and longer-term strategic considerations, prototyped the experience and aligned success measures; Analytics implemented it. The legacy dashboard had not served professional certification customers' growing needs, especially recertification. The usage investigation started after the advanced dashboard launched.
+
+My hypothesis was that visibility into program health and repeat-program revenue encouraged some customers to create more recertification-enabled programs. No revenue uplift or quantified recertification effect is claimed. `docs/historical-outcomes.json` records the confirmed scope and separate measurement windows.
 
 ## What you can inspect
 
@@ -17,7 +21,7 @@ The original Analytics CTA shipped. My QA agent checked staging; I manually revi
 
 ## GitHub Pages version
 
-`site/` is the prepared hosting version. It keeps the seven-tab walkthrough and interactive baseline/candidate prototype, with a clearly labeled **saved snapshot of actual local execution**. It does not run agents, process warehouse requests, record server telemetry, or change release/learning approvals. Sample program edits stay in the visitor’s browser tab. The snapshot includes the approved lesson and subsequent Codex reasoning; local release remains pending. `site/manifest.json` records the source and output hashes.
+`site/` is the prepared hosting version. It opens with a concise cover page (`index.html`), then the seven-step workflow (`workflow.html`) and interactive baseline/candidate prototype, with a clearly labeled **saved snapshot of actual local execution**. It does not run agents, process warehouse requests, record server telemetry, or change release/learning approvals. Sample program edits stay in the visitor’s browser tab. The snapshot includes the approved lesson and subsequent Codex reasoning; local release remains pending. `site/manifest.json` records the source and output hashes.
 
 To publish when ready:
 
@@ -26,7 +30,7 @@ To publish when ready:
 3. In **Actions**, choose **Publish demo to GitHub Pages → Run workflow**. It validates and publishes only `site/`.
 4. Use the URL shown by the deployment as the application link.
 
-The workflow is manual: pushing alone does not deploy it. No repository or public site has been created by this preparation. Setup follows [GitHub’s custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+Updates to `site/` merged into `main` automatically validate and publish the prepared snapshot. The manual Run workflow option remains available. The public demo is at https://calvin-chow-pm.github.io/agentic-product-workflow/. Setup follows [GitHub’s custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
 To preview just the static hosting version:
 
@@ -44,7 +48,7 @@ python3 tests/test_pages.py
 node tests/pages.test.cjs
 ```
 
-This exports actual runtime state and requires an existing candidate; it never supplies missing approvals or replays old agent output as new inference. Commit the refreshed `site/` and rerun the manual publishing workflow. The hosting walkthrough is regenerated with the snapshot; the earlier files in `recordings/` retain their original export provenance.
+This exports actual runtime state and requires an existing candidate; it never supplies missing approvals or replays old agent output as new inference. Commit the refreshed `site/` and merge into `main` to publish, or rerun the manual publishing workflow. The hosting walkthrough is regenerated with the snapshot; the earlier files in `recordings/` retain their original export provenance and earlier narrative. They predate the historical-outcome clarification; use the current cover and workflow for the confirmed account.
 
 ## Run locally
 
@@ -132,8 +136,8 @@ node tests/pages.test.cjs
 
 Tests exercise comparable populations, pending responses, duplicate and concurrent processing, altered requests, invalid cohorts/windows, scoped tools, provenance, stale approvals, separate reviewers, actual local Git merge, production hashes and reviewed context propagation. JavaScript unit tests execute the real inline app script against a small DOM stub; they are **not visual browser QA**.
 
-Browser automation was blocked by an unavailable security-policy check in the authoring environment. No alternate browser automation was used to bypass it. Visual layout and end-to-end browser interaction remain for manual review; the recording is accurately labeled as evidence-log playback. No usage uplift, company-wide AI policy, LLM accuracy score, or reconstructed-system performance improvement is asserted.
+Browser automation was blocked by an unavailable security-policy check in the authoring environment. No alternate browser automation was used to bypass it. Visual layout and end-to-end browser interaction remain for manual review; the recording is accurately labeled as evidence-log playback. No customer uplift is measured by the synthetic reconstruction. Historical outcomes are separately attributed to Calvin’s confirmed account; no company-wide AI policy, LLM accuracy score or reconstructed-system performance improvement is asserted.
 
 ## Publication boundary
 
-Only this folder is intended for a future public repository. `.runtime/`, its fixture Git history, caches and surrounding career-source files are excluded from the source bundle. The exported recordings contain synthetic evidence and public professional context. No remote repository, hosting, application submission, outreach or canonical job-search learning update has been performed.
+Only this demonstration folder belongs in the public repository. `.runtime/`, its fixture Git history, caches and surrounding career-source files are excluded from the source bundle. The exported recordings contain synthetic evidence and public professional context. The repository and Pages site contain only this demonstration folder. No application submission or outreach is performed by the demo.

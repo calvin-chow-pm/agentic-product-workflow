@@ -1,0 +1,34 @@
+{
+  "evidence_type": "User-confirmed historical account; not synthetic demo telemetry",
+  "confirmed_in": "Corel/WinZip demo session",
+  "confirmed_on": "2026-10-08",
+  "chronology": [
+    "Calvin defined segments, jobs, requirements, strategic considerations, prototype and success measures with Analytics",
+    "Analytics implemented and launched the advanced certification dashboard",
+    "Calvin investigated a post-launch dashboard usage gap and led the agent-assisted contextual-link improvement",
+    "The link shipped following staging QA, Calvin's ephemeral-environment review, EM approval and production QA",
+    "Customer engagement and program-health signals were subsequently observed"
+  ],
+  "dashboard_click_through": {
+    "before_percent": 10,
+    "after_percent": 35,
+    "increase_percentage_points": 25,
+    "window": "two weeks",
+    "cohort": "all certification users with dashboard access"
+  },
+  "new_active_programs_created": {
+    "approximate_increase_percent": 10,
+    "window": "month over month"
+  },
+  "qualitative_observations": [
+    "Higher-volume professional certification academies engaged more after clicking through",
+    "Recertification-enabled certification programs showed a positive trend"
+  ],
+  "hypothesis": "Better visibility into program health and repeat-program revenue encouraged some customers to create more recertification-enabled programs",
+  "limits": [
+    "No causal isolation of the contextual link's effect on program growth",
+    "No numerical uplift for qualitative engagement or recertification trends",
+    "No measured revenue increase claimed",
+    "Historical measurement windows and cohorts differ from synthetic exposed-admin comparisons"
+  ]
+}

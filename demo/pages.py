@@ -42,6 +42,7 @@ def export(demo, output):
     workflow = workflow.replace('ACTUAL LOCAL RUN · SYNTHETIC EVIDENCE', 'SAVED ACTUAL RUN · INTERACTIVE PREVIEW')
     workflow = workflow.replace('Current demo status', 'Captured run status').replace('Refresh records', 'Reload snapshot')
     workflow = workflow.replace('Activity from this Codex reconstruction.', 'Saved activity from this Codex reconstruction.')
+    workflow = workflow.replace('href="/"', 'href="index.html"')
     workflow = workflow.replace('href="/walkthrough"', 'href="walkthrough.html"')
     workflow = workflow.replace("'/baseline'", "'baseline.html'").replace("'/app'", "'app.html'")
     workflow = workflow.replace('href="/app?qa=1"', 'href="app.html?qa=1"')
@@ -56,11 +57,14 @@ def export(demo, output):
     playback = (ROOT / 'web/playback.html').read_text().replace('{{PAYLOAD}}', recording)
     playback = playback.replace("const set=v=>$('#artifact').srcdoc=v;", "const set=v=>$('#artifact').src=v===recording.baseline?'baseline.html?qa=1':'app.html?qa=1';")
     output.mkdir(parents=True, exist_ok=True)
-    for name, value in [('index.html', workflow), ('app.html', candidate), ('baseline.html', baseline), ('walkthrough.html', playback)]:
+    cover = (ROOT / 'web/cover.html').read_text().replace('href="/workflow"', 'href="workflow.html"')
+    for name, value in [('index.html', cover), ('workflow.html', workflow), ('app.html', candidate), ('baseline.html', baseline), ('walkthrough.html', playback)]:
         (output / name).write_text(value)
     (output / '.nojekyll').write_text('')
     write(output / 'run.json', state)
-    manifest = {'captured_at': captured_at, 'format': 'Static snapshot of actual local execution with interactive browser prototype', 'agent_inference': 'Recorded only; no live inference or background workers on the hosted site', 'prototype_changes': 'Browser-tab sample edits only; preview events are not sent to a server', 'local_candidate_sha256': digest(candidate_path), 'source_workflow_sha256': digest(ROOT / 'web/workflow.html'), 'snapshot_files': {name: digest(output / name) for name in ['index.html', 'app.html', 'baseline.html', 'walkthrough.html', 'run.json']}, 'released_locally': state['released'], 'manual_review': state['human_review'], 'separate_review': state['reviewer'], 'context_version': state['context_pack']['version'], 'publication': 'Prepared files only; export does not publish or approve a release'}
+    historical = json.loads((ROOT / 'docs/historical-outcomes.json').read_text())
+    write(output / 'historical-outcomes.json', historical)
+    manifest = {'captured_at': captured_at, 'format': 'Static snapshot of actual local execution with interactive browser prototype', 'agent_inference': 'Recorded only; no live inference or background workers on the hosted site', 'prototype_changes': 'Browser-tab sample edits only; preview events are not sent to a server', 'local_candidate_sha256': digest(candidate_path), 'source_cover_sha256': digest(ROOT / 'web/cover.html'), 'historical_outcomes': 'User-confirmed historical account, separate from synthetic execution records', 'source_workflow_sha256': digest(ROOT / 'web/workflow.html'), 'snapshot_files': {name: digest(output / name) for name in ['index.html', 'workflow.html', 'app.html', 'baseline.html', 'walkthrough.html', 'run.json', 'historical-outcomes.json']}, 'released_locally': state['released'], 'manual_review': state['human_review'], 'separate_review': state['reviewer'], 'context_version': state['context_pack']['version'], 'publication': 'Prepared files only; export does not publish or approve a release'}
     write(output / 'manifest.json', manifest)
     return manifest
 

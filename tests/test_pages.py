@@ -38,13 +38,25 @@ class PagesTests(unittest.TestCase):
         self.assertEqual(state['released'], manifest['released_locally'])
         self.assertEqual(state['human_review'], manifest['manual_review'])
         self.assertEqual(state['context_pack']['version'], manifest['context_version'])
-        html = (SITE / 'index.html').read_text()
+        html = (SITE / 'workflow.html').read_text()
         self.assertIn('Hosted snapshot:', html)
         self.assertNotIn('{{TOKEN}}', html)
         self.assertNotIn('fetch(', html)
         for file in ['app.html', 'baseline.html']:
             self.assertNotIn('fetch(', (SITE / file).read_text())
         self.assertFalse((SITE / '.runtime').exists())
+
+    def test_cover_and_historical_evidence_are_separate(self):
+        cover = (SITE / 'index.html').read_text()
+        self.assertIn('href="workflow.html"', cover)
+        self.assertIn('What I built and led', cover)
+        self.assertIn('Analytics implemented the dashboard', cover)
+        self.assertNotIn('const capturedState=', cover)
+        history = json.loads((SITE / 'historical-outcomes.json').read_text())
+        self.assertEqual(history['dashboard_click_through']['before_percent'], 10)
+        self.assertEqual(history['dashboard_click_through']['after_percent'], 35)
+        self.assertEqual(history['new_active_programs_created']['window'], 'month over month')
+        self.assertEqual(history['evidence_type'], 'User-confirmed historical account; not synthetic demo telemetry')
 
 if __name__ == '__main__':
     unittest.main()

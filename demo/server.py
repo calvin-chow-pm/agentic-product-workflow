@@ -30,6 +30,8 @@ def make_server(demo, port=0):
         def do_GET(self):
             path = urlparse(self.path).path
             if path == "/":
+                self.send((ROOT / "web/cover.html").read_text(), "text/html")
+            elif path == "/workflow":
                 self.send((ROOT / "web/workflow.html").read_text().replace("{{TOKEN}}", token), "text/html")
             elif path == "/api/state":
                 self.send(demo.public())

@@ -1,16 +1,20 @@
 {
-  "captured_at": "2026-10-08T18:24:58.099842+00:00",
+  "captured_at": "2026-10-09T00:38:05.029488+00:00",
   "format": "Static snapshot of actual local execution with interactive browser prototype",
   "agent_inference": "Recorded only; no live inference or background workers on the hosted site",
   "prototype_changes": "Browser-tab sample edits only; preview events are not sent to a server",
   "local_candidate_sha256": "5ed939ca54e0f3d78e8d7c963ad728c2b93d2a904cbf42d696fd1197cc0b7458",
-  "source_workflow_sha256": "94068aec1c4466c342b01ee312d94ca46fdc2e0bfc1de8c05f100d2b35d8dad3",
+  "source_cover_sha256": "a9033b3c30e910a711bad6aea0ed0e4782650768e85cbcd898244716b0f4217b",
+  "historical_outcomes": "User-confirmed historical account, separate from synthetic execution records",
+  "source_workflow_sha256": "1d3311579eeb2acb2c894696b1a15f3a1787a71e9a1d1eae8913d34f59783977",
   "snapshot_files": {
-    "index.html": "37016de7300e6d41b8ecf18880ee26686b4398b830a28c9ca526c1e42f675d11",
+    "index.html": "fe614159b2d870927bd442d52f19a1d02c09ef1b7d3dcf1f8810b548b862c624",
+    "workflow.html": "23c69795aebd580c43ddfa9b96132f0fb2b4e9352a3fbb376d8fe55e530d1756",
     "app.html": "def53bad43664aeae5706e9e18de6b6a8ba47fe1e7e0299b3cab2af3f80e5868",
     "baseline.html": "3f1bd650b6942a9416a118cd99f55d512e89c1b703f5c681353a8befd336cc81",
-    "walkthrough.html": "267754b13b431965c6997cba9f74848e3c9c82fad1ace628977a489051b9d6c1",
-    "run.json": "569fab42a5c4a4de7cbafb3347dec8a0ddd4ff747f7c59ceb2e5d4f0150fbe8e"
+    "walkthrough.html": "9c3d8e721dbf934ec621a641e7722500c487bc5918fa1fe7993d4813f65eec95",
+    "run.json": "569fab42a5c4a4de7cbafb3347dec8a0ddd4ff747f7c59ceb2e5d4f0150fbe8e",
+    "historical-outcomes.json": "ccf49219b8301ccd92becf05a0626359fccd98c39c6eb3abf8043dd25cd5882c"
   },
   "released_locally": false,
   "manual_review": null,
