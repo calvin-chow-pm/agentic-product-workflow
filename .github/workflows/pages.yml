@@ -1,6 +1,13 @@
 name: Publish demo to GitHub Pages
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'tests/test_pages.py'
+      - 'tests/pages.test.cjs'
+      - '.github/workflows/pages.yml' 
 permissions:
   contents: read
   pages: write
