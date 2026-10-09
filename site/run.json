@@ -2,62 +2,12 @@
   "label": "Reconstructed from a workflow I built and used at Thinkific. Uses synthetic data and a demonstration application; original company code is excluded.",
   "mode": "actual local execution / synthetic inputs",
   "created_at": "2026-10-07T23:18:27.568487+00:00",
-  "phase": "approval",
+  "phase": "build",
   "placement": "overview",
-  "human_review": {
-    "reviewer": "calvin",
-    "note": "placement of cta",
-    "sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
-    "at": "2026-10-09T02:18:05.733122+00:00",
-    "type": "local human attestation; identity is not authenticated"
-  },
+  "human_review": null,
   "reviewer": null,
   "released": false,
-  "qa": {
-    "passed": true,
-    "checks": [
-      {
-        "name": "Exactly one contextual CTA at selected placement",
-        "passed": true
-      },
-      {
-        "name": "Destination serves analytics view and useful dashboard action",
-        "passed": true
-      },
-      {
-        "name": "Overview does not impose a program filter; within-item preserves it",
-        "passed": true
-      },
-      {
-        "name": "Baseline has no contextual CTA",
-        "passed": true
-      },
-      {
-        "name": "Raw dataset route denied: /data/usage.csv",
-        "passed": true
-      },
-      {
-        "name": "Raw dataset route denied: /../data/usage.csv",
-        "passed": true
-      },
-      {
-        "name": "Raw dataset route denied: /api/raw-data",
-        "passed": true
-      },
-      {
-        "name": "Event receiver stores QA-marked event separately from customer outcomes",
-        "passed": true
-      },
-      {
-        "name": "Demo sample-data and outcome disclosures remain visible",
-        "passed": true
-      }
-    ],
-    "sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
-    "at": "2026-10-09T02:18:01.290627+00:00",
-    "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
-    "production": false
-  },
+  "qa": null,
   "events": [
     {
       "id": 1,
@@ -1224,13 +1174,26 @@
         "at": "2026-10-09T02:18:05.733122+00:00",
         "type": "local human attestation; identity is not authenticated"
       }
+    },
+    {
+      "id": 43,
+      "at": "2026-10-09T02:51:05.586094+00:00",
+      "phase": "build",
+      "actor": "Codex engineering",
+      "title": "Working CTA implemented on a local feature branch",
+      "evidence": {
+        "placement": "overview",
+        "commit": "e7afc14d3b7dec2812beef215ae8ee547c066ea4",
+        "sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
+        "method": "Actual generated application and Git commit; no Cursor or historical code execution claimed."
+      }
     }
   ],
   "learnings": {},
   "pending": [],
   "rationale": "Add an explicit View certification analytics link beside the program-list heading, opening all-program analytics. The corrected comparison and synthetic workflow notes support testing it; selection effects and dashboard value remain alternative explanations.",
-  "candidate_commit": "a985cbf1acb014b5f5698cbf85457db37618b159",
-  "candidate_sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
+  "candidate_commit": "e7afc14d3b7dec2812beef215ae8ee547c066ea4",
+  "candidate_sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
   "initial-insight": {
     "source": "synthetic usage.csv",
     "source_sha256": "3e64e87d3f4b4fb67fa742912d5d47fda382e8a4f0540f06e4c1e58f9fa3da48",

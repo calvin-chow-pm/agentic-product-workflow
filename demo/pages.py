@@ -12,7 +12,7 @@ def static_app(source):
     source = source.replace('Demo workspace · All numbers are sample data', 'Interactive preview · All numbers are sample data')
     start = source.index('async function track(')
     end = source.index("document.querySelectorAll('[data-event]')", start)
-    source = source[:start] + """async function track(event,placement){document.getElementById('event-note').textContent='Preview interaction: '+event+' (browser only; no data sent or measured outcome).';}
+    source = source[:start] + """async function track(event,placement){const labels={analytics_cta_exposed:'Analytics link displayed.',analytics_cta_clicked:'Analytics link opened.',dashboard_viewed:'Analytics dashboard opened.',dashboard_action:'Renewal activity shown.'};document.getElementById('event-note').textContent='Demo interaction: '+(labels[event]||'Preview updated.');}
 """ + source[end:]
     return source
 
@@ -59,7 +59,9 @@ def export(demo, output):
     cover = (ROOT / 'web/cover.html').read_text()
     cover = cover.replace('href="/workflow', 'href="workflow.html')
     cover = cover.replace('href="/app', 'href="app.html').replace('src="/app', 'src="app.html')
-    for name, value in [('index.html', cover), ('workflow.html', workflow), ('app.html', candidate), ('prototype.html', candidate.replace('<title>Academy · Certification workspace</title>', '<title>Certification Programs Prototype · Calvin Chow</title>').replace('Interactive preview · All numbers are sample data', 'Certification prototype · Reconstructed with sample data')),  ('baseline.html', baseline), ('walkthrough.html', playback)]:
+    prototype = candidate.replace('<title>Academy · Certification workspace</title>', '<title>Certification Programs Prototype · Calvin Chow</title>')
+    prototype = re.sub(r'<div class="notice">.*?</div>', '<div class="notice">Certification prototype · Reconstructed with sample data</div>', prototype, count=1)
+    for name, value in [('index.html', cover), ('workflow.html', workflow), ('app.html', candidate), ('prototype.html', prototype), ('baseline.html', baseline), ('walkthrough.html', playback)]:
         (output / name).write_text(value)
     (output / '.nojekyll').write_text('')
     write(output / 'run.json', state)
