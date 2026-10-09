@@ -6,7 +6,7 @@
     "Calvin defined segments, jobs, requirements, strategic considerations, prototype and success measures with Analytics",
     "Analytics implemented and launched the advanced certification dashboard",
     "Calvin investigated a post-launch dashboard usage gap and led the agent-assisted contextual-link improvement",
-    "The link shipped following staging QA, Calvin's ephemeral-environment review, EM approval and production QA",
+    "The link was agent-built, reviewed by the QA agent in staging, reviewed by Calvin in an ephemeral environment and approved by his EM before shipping, then reviewed again by the QA agent in production",
     "Customer engagement and program-health signals were subsequently observed"
   ],
   "dashboard_click_through": {
@@ -30,5 +30,16 @@
     "No numerical uplift for qualitative engagement or recertification trends",
     "No measured revenue increase claimed",
     "Historical measurement windows and cohorts differ from synthetic exposed-admin comparisons"
-  ]
+  ],
+  "prototyping_scope": {
+    "advanced_analytics_dashboard": "Calvin prototyped the advanced dashboard; Analytics implemented it",
+    "credential_rebuild": "Calvin prototyped the certification overview, certificate designer and full flow across the initial slice and subsequent certification-at-scale slices; those slices shipped",
+    "reconstruction": "The current demo reconstructs the overview and analytics-link behavior; it does not reproduce the full historical prototype"
+  },
+  "historical_placement_decision": {
+    "chosen": "certification overview",
+    "reason": "A link within a specific program could imply analytics scoped to that program, while the first dashboard covered all programs",
+    "expectation_status": "Calvin’s hypothesis based on customer mental model, not a measured expectation",
+    "later_slice": "Program-specific analytics was planned, not established as shipped"
+  }
 }

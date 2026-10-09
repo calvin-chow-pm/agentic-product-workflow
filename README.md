@@ -4,13 +4,17 @@
 
 I noticed that certification analytics had lower dashboard access and usage than other product areas despite comparable product adoption. That prompted an investigation of the customer workflow, followed by a question about where to add a contextual analytics link. I connected strategy, design, analysis and delivery agents so that they could get missing evidence, work through alternatives, and implement the change.
 
-The original Analytics CTA shipped. My QA agent checked staging; I manually reviewed the ephemeral environment and GitHub checklist; my EM reviewed the PR; the engineering agent merged it; QA checked production. Dashboard click-through rose from **10% to 35% (+25 percentage points) over two weeks** among all certification users with dashboard access; **new active programs created increased approximately 10% month over month**. Higher-volume professional academies engaged more after clicking through, and recertification-enabled programs trended upward. These are user-confirmed historical observations, not synthetic demo results or isolated proof of causality. The reconstructed candidate placement is a new choice using synthetic evidence, not a claim about the historical final placement.
+The original Analytics CTA was agent-built and agent-reviewed before human review and shipping, followed by another agent review in production. Bulma (staff engineer bot) built the change; my QA agent checked staging; I manually reviewed the ephemeral environment and GitHub checklist; my EM reviewed the PR; the engineering agent merged it; QA checked production. Dashboard click-through rose from **10% to 35% (+25 percentage points) over two weeks** among all certification users with dashboard access; **new active programs created increased approximately 10% month over month**. Higher-volume professional academies engaged more after clicking through, and recertification-enabled programs trended upward. These are user-confirmed historical observations, not synthetic demo results or isolated proof of causality. Calvin confirmed the historical placement was the overview: a link inside a program could imply program-specific analytics, while the initial dashboard covered all programs. Program-specific analytics was planned for a later slice. The expected interpretation was his hypothesis, not a measured expectation in the demo; synthetic placement analysis remains separate from the historical decision.
+
+My prototyping covered two related experiences: the advanced analytics dashboard, and the certification overview, certificate designer and full end-to-end flow across the initial credential-rebuild slice and subsequent shipped slices for certification at scale. The cover links directly to a reconstruction of the overview; it does not reproduce original company designs or the complete historical designer and flow.
 
 Before this workflow, I partnered with Analytics to create the advanced certification dashboard. I defined segments, jobs, requirements and longer-term strategic considerations, prototyped the experience and aligned success measures; Analytics implemented it. The legacy dashboard had not served professional certification customers' growing needs, especially recertification. The usage investigation started after the advanced dashboard launched.
 
 My hypothesis was that visibility into program health and repeat-program revenue encouraged some customers to create more recertification-enabled programs. No revenue uplift or quantified recertification effect is claimed. `docs/historical-outcomes.json` records the confirmed scope and separate measurement windows.
 
 ## What you can inspect
+
+The interactive workflow is the main experience. Edited recordings remain repository reference material; they are not linked from the cover or workflow. The page keeps concise comparison, design, QA and learning details. Raw request/response records and the repeated event timeline belong in repository evidence; the page links to that repository.
 
 - `recordings/walkthrough.html`: a self-contained **3:30 edited playback of actual run evidence**. It performs no new inference and includes the captured candidate application. It is not an uninterrupted browser screen recording.
 - `recordings/run.json`: actual local execution records, real Codex contributions, analysis results, checks, candidate commit and explicit approval state.
@@ -22,6 +26,8 @@ My hypothesis was that visibility into program health and repeat-program revenue
 ## GitHub Pages version
 
 `site/` is the prepared hosting version. It opens with a concise cover page (`index.html`), then the seven-step workflow (`workflow.html`) and interactive baseline/candidate prototype, with a clearly labeled **saved snapshot of actual local execution**. It does not run agents, process warehouse requests, record server telemetry, or change release/learning approvals. Sample program edits stay in the visitor’s browser tab. The snapshot includes the approved lesson and subsequent Codex reasoning; local release remains pending. `site/manifest.json` records the source and output hashes.
+
+For local review, open the cover at **http://127.0.0.1:8766/** or the static hosting preview at **http://127.0.0.1:8767/**. The cover leads with customer need, product response, post-launch investigation and outcomes. A smaller prototype link sits beside the product response; the larger interactive preview remains in Build & QA. The standalone prototype is published at `https://calvin-chow-pm.github.io/agentic-product-workflow/prototype.html?view=overview`. It opens the new certification experience directly, with browser-only sample edits. Future resume bullets can link to the cover, the standalone prototype, or `index.html#strategy`, `index.html#outcomes` and `workflow.html#2` for specific evidence. The walkthrough explains that its requests, analysis, agent outputs and checks are captured reconstruction records, rather than live agents on the hosted site.
 
 To publish when ready:
 
@@ -49,6 +55,8 @@ node tests/pages.test.cjs
 ```
 
 This exports actual runtime state and requires an existing candidate; it never supplies missing approvals or replays old agent output as new inference. Commit the refreshed `site/` and merge into `main` to publish, or rerun the manual publishing workflow. The hosting walkthrough is regenerated with the snapshot; the earlier files in `recordings/` retain their original export provenance and earlier narrative. They predate the historical-outcome clarification; use the current cover and workflow for the confirmed account.
+
+Both versions contain eight sample programs. The baseline program table contains Program, Course and edit/delete actions. The candidate adds Status, Certificate template and Tags, replacing per-row issued/renewal counts. Courses are required for certificate issuance. Use the row menu’s Manage tags modal to add or remove up to five tags; two show initially, with expand/collapse for the rest. The candidate also supports selecting rows or all programs, bulk tag addition/removal, and confirmed bulk deletion. Bulk tag edits validate the five-tag limit for every selected program before changing any row. Course, tag and deletion changes affect sample data in the browser tab only.
 
 ## Run locally
 
@@ -115,7 +123,7 @@ The local HTTP server binds only to loopback. It exposes the UI and curated run 
 | Google Drive `_outbox` / `_inbox`: automatic deep-data request relay | Executable local request/response relay; explicit worker command |
 | Claude analysis via company systems unavailable to Grok Bot | Trusted worker over synthetic aggregate datasets |
 | Bulma / Cursor: prepare and implement code changes | Codex-built demo application and local Git fixture |
-| Agent staging QA → manual review → EM approval → merge → production QA | Executable checks plus explicit human and separate reviewer gates; identity and scope disclosed |
+| Agent build → agent staging review → manual review → EM approval → merge → agent production review | Executable checks plus explicit human and separate reviewer gates; identity and scope disclosed |
 
 The original system replaced fragmented context, manual cross-tool analysis handoffs, repeated corrections, and disconnected product-to-engineering preparation. This reconstruction demonstrates those mechanisms without claiming an identical infrastructure deployment.
 
