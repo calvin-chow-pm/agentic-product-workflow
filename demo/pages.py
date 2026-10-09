@@ -8,6 +8,7 @@ from .record import chapters
 
 
 def static_app(source):
+    source = source.replace('padding:36px 42px;margin:auto', 'padding:36px 42px;margin:0 auto')
     source = source.replace('href="/"', 'href="index.html"')
     source = source.replace('Demo workspace · All numbers are sample data', 'Interactive preview · All numbers are sample data')
     start = source.index('async function track(')
@@ -44,7 +45,7 @@ def export(demo, output):
     workflow = workflow.replace('Activity from this Codex reconstruction.', 'Saved activity from this Codex reconstruction.')
     workflow = workflow.replace('href="/"', 'href="index.html"')
     workflow = workflow.replace("'/baseline'", "'baseline.html'").replace("'/app'", "'app.html'")
-    workflow = workflow.replace('href="/app?qa=1"', 'href="app.html?qa=1"')
+    workflow = workflow.replace("'/baseline?qa=1'", "'baseline.html?qa=1'")
     notice = (' <span><strong>Hosted snapshot:</strong> captured on ' + captured_at[:10] + '. Agents do not run live here. '
               '<a href="manifest.json">Snapshot provenance</a> · <a href="run.json">Execution record</a></span>')
     workflow = workflow.replace('</div><div class="layout">', notice + '</div><div class="layout">', 1)

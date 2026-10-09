@@ -31,7 +31,7 @@ console.log('PASS: seven static tabs, relative preview paths, hidden local contr
 // The cover leads with strategy and outcomes; the full prototype stays one click away.
 const cover=fs.readFileSync('site/index.html','utf8');
 assert.ok(!cover.includes('<iframe'));
-assert.ok(cover.includes('id="prototype" href="app.html?qa=1"'));
+assert.ok(cover.includes('id="prototype" href="https://calvin-chow-pm.github.io/agentic-product-workflow/prototype.html?view=overview"'));
 assert.ok(cover.includes('Try the certification prototype'));
 assert.ok(cover.includes('The Second Brain behind this system'));
 assert.ok(cover.indexOf('id="strategy"')<cover.indexOf('id="outcomes"'));
