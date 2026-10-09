@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-09T02:51:13.747773+00:00",
+  "captured_at": "2026-10-09T02:55:30.384209+00:00",
   "format": "Static snapshot of actual local execution with interactive browser prototype",
   "agent_inference": "Recorded only; no live inference or background workers on the hosted site",
   "prototype_changes": "Browser-tab sample edits only; preview events are not sent to a server",
@@ -9,12 +9,12 @@
   "source_workflow_sha256": "8d6fa541844b793d4b7bf23417f8484c44ea67033d4576613b1740f9e80082e7",
   "snapshot_files": {
     "index.html": "b534a4c77809191d41ee8f8d126e4beda91c64584755d72e06e74fbdf2a7de27",
-    "workflow.html": "feabb8c95fa113eb0d565b1030c542e727664aab56b561e9849e8713fe741ea1",
+    "workflow.html": "910cfb587645d61b1c3976ffefe5588d8b3165192de912547926b7b9a207623a",
     "app.html": "200d7e67b915a82dcc290d661845e072623d8cd6a079fc81a6395d5f173c4806",
     "prototype.html": "ce0dd17f1f7e0be0c85296248adc2c7f50dd76de2b650d74d2b9b539c333724e",
     "baseline.html": "9254a3d3e9070061a6adc93a36ada8a83b5b4360f682bc75cb13ae14e0a9ea55",
-    "walkthrough.html": "eebb6e77d50231e64a15454393dfffce46ef133298d23a4f6f0cde067de8c768",
-    "run.json": "c82ba32794e45df10a62954217c4791277b3a14530f33e2fba83efe5759a731e",
+    "walkthrough.html": "8b739219f0fc12f6ecc4ccbc9ed0d6fa08de45c6d2db47538c46d61d164894ae",
+    "run.json": "3839cb5b77d8051ad6f2a03a6235a0b9d7a959730bd6503ff60b4a38b7b79584",
     "historical-outcomes.json": "7dcfd6839c5921a1fd932abc13f2f718b3598ab12f7a1aa38c16c36a1a1b280b"
   },
   "released_locally": false,

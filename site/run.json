@@ -2,12 +2,56 @@
   "label": "Reconstructed from a workflow I built and used at Thinkific. Uses synthetic data and a demonstration application; original company code is excluded.",
   "mode": "actual local execution / synthetic inputs",
   "created_at": "2026-10-07T23:18:27.568487+00:00",
-  "phase": "build",
+  "phase": "qa",
   "placement": "overview",
   "human_review": null,
   "reviewer": null,
   "released": false,
-  "qa": null,
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Exactly one contextual CTA at selected placement",
+        "passed": true
+      },
+      {
+        "name": "Destination serves analytics view and useful dashboard action",
+        "passed": true
+      },
+      {
+        "name": "Overview does not impose a program filter; within-item preserves it",
+        "passed": true
+      },
+      {
+        "name": "Baseline has no contextual CTA",
+        "passed": true
+      },
+      {
+        "name": "Raw dataset route denied: /data/usage.csv",
+        "passed": true
+      },
+      {
+        "name": "Raw dataset route denied: /../data/usage.csv",
+        "passed": true
+      },
+      {
+        "name": "Raw dataset route denied: /api/raw-data",
+        "passed": true
+      },
+      {
+        "name": "Event receiver stores QA-marked event separately from customer outcomes",
+        "passed": true
+      },
+      {
+        "name": "Demo sample-data and outcome disclosures remain visible",
+        "passed": true
+      }
+    ],
+    "sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
+    "at": "2026-10-09T02:55:29.773121+00:00",
+    "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
+    "production": false
+  },
   "events": [
     {
       "id": 1,
@@ -1186,6 +1230,58 @@
         "commit": "e7afc14d3b7dec2812beef215ae8ee547c066ea4",
         "sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
         "method": "Actual generated application and Git commit; no Cursor or historical code execution claimed."
+      }
+    },
+    {
+      "id": 44,
+      "at": "2026-10-09T02:55:29.775397+00:00",
+      "phase": "qa",
+      "actor": "QA worker",
+      "title": "Candidate checks completed",
+      "evidence": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Exactly one contextual CTA at selected placement",
+            "passed": true
+          },
+          {
+            "name": "Destination serves analytics view and useful dashboard action",
+            "passed": true
+          },
+          {
+            "name": "Overview does not impose a program filter; within-item preserves it",
+            "passed": true
+          },
+          {
+            "name": "Baseline has no contextual CTA",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /../data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /api/raw-data",
+            "passed": true
+          },
+          {
+            "name": "Event receiver stores QA-marked event separately from customer outcomes",
+            "passed": true
+          },
+          {
+            "name": "Demo sample-data and outcome disclosures remain visible",
+            "passed": true
+          }
+        ],
+        "sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
+        "at": "2026-10-09T02:55:29.773121+00:00",
+        "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
+        "production": false
       }
     }
   ],
