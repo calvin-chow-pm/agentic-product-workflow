@@ -33,7 +33,7 @@ const cover=fs.readFileSync('site/index.html','utf8');
 assert.ok(!cover.includes('<iframe'));
 assert.ok(cover.includes('id="prototype" href="https://calvin-chow-pm.github.io/agentic-product-workflow/prototype.html?view=overview"'));
 assert.ok(cover.includes('Try the certification prototype'));
-assert.ok(cover.includes('The Second Brain behind this system'));
+assert.ok(cover.includes('Explore my AI Second Brain'));
 assert.ok(cover.indexOf('id="strategy"')<cover.indexOf('id="outcomes"'));
 assert.ok(cover.indexOf('id="outcomes"')<cover.indexOf('<div class="actions bottom">'));
 assert.ok(!cover.includes('Saved execution evidence'));

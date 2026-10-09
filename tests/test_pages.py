@@ -49,7 +49,7 @@ class PagesTests(unittest.TestCase):
     def test_cover_and_historical_evidence_are_separate(self):
         cover = (SITE / 'index.html').read_text()
         self.assertIn('href="workflow.html"', cover)
-        self.assertIn('What I built and led', cover)
+        self.assertIn('Design the product response', cover)
         self.assertIn('Analytics implemented the dashboard', cover)
         self.assertNotIn('const capturedState=', cover)
         history = json.loads((SITE / 'historical-outcomes.json').read_text())
