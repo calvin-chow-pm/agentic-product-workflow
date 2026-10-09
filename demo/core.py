@@ -220,7 +220,11 @@ class Demo:
         template = (ROOT / "web/dashboard.html").read_text()
         cta = '<a class="analytics-cta" href="?view=analytics" data-event="analytics_cta_clicked" data-placement="overview">View certification analytics <span aria-hidden="true">↗</span></a>' if placement == "overview" else ""
         program_cta = '<a class="program-cta" href="?view=analytics&amp;program=first-aid" data-event="analytics_cta_clicked" data-placement="within_item">View program analytics ↗</a>' if placement == "within_item" else ""
-        return template.replace("{{CTA}}", cta).replace("{{PROGRAM_CTA}}", program_cta).replace("{{VARIANT}}", variant)
+        columns = ["program", "course", "actions"] if placement is None else ["select", "program", "course", "status", "template", "tags", "actions"]
+        names = {"select": '<input id="select-all" type="checkbox" aria-label="Select all programs">', "program": "Program", "course": "Course", "status": "Status", "template": "Certificate template", "tags": "Tags", "actions": '<span class="sr-only">Actions</span>'}
+        table_columns = "".join('<col class="col-' + key + '">' for key in columns)
+        table_headings = "".join(('<th class="selection-cell">' if key == "select" else "<th>") + names[key] + "</th>" for key in columns)
+        return template.replace("{{CTA}}", cta).replace("{{PROGRAM_CTA}}", program_cta).replace("{{VARIANT}}", variant).replace("{{TABLE_VARIANT}}", "baseline" if placement is None else "candidate").replace("{{TABLE_COLUMNS}}", table_columns).replace("{{TABLE_HEADINGS}}", table_headings)
 
     def build(self):
         state = self.state()

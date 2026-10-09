@@ -1,23 +1,30 @@
 {
-  "captured_at": "2026-10-09T00:38:05.029488+00:00",
+  "captured_at": "2026-10-09T02:22:11.327334+00:00",
   "format": "Static snapshot of actual local execution with interactive browser prototype",
   "agent_inference": "Recorded only; no live inference or background workers on the hosted site",
   "prototype_changes": "Browser-tab sample edits only; preview events are not sent to a server",
-  "local_candidate_sha256": "5ed939ca54e0f3d78e8d7c963ad728c2b93d2a904cbf42d696fd1197cc0b7458",
-  "source_cover_sha256": "a9033b3c30e910a711bad6aea0ed0e4782650768e85cbcd898244716b0f4217b",
+  "local_candidate_sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
+  "source_cover_sha256": "f7d51d44c6fc9f08b519395f832d8d17e7f78a7c112443d1179f26ba4ddce391",
   "historical_outcomes": "User-confirmed historical account, separate from synthetic execution records",
-  "source_workflow_sha256": "1d3311579eeb2acb2c894696b1a15f3a1787a71e9a1d1eae8913d34f59783977",
+  "source_workflow_sha256": "8d6fa541844b793d4b7bf23417f8484c44ea67033d4576613b1740f9e80082e7",
   "snapshot_files": {
-    "index.html": "fe614159b2d870927bd442d52f19a1d02c09ef1b7d3dcf1f8810b548b862c624",
-    "workflow.html": "23c69795aebd580c43ddfa9b96132f0fb2b4e9352a3fbb376d8fe55e530d1756",
-    "app.html": "def53bad43664aeae5706e9e18de6b6a8ba47fe1e7e0299b3cab2af3f80e5868",
-    "baseline.html": "3f1bd650b6942a9416a118cd99f55d512e89c1b703f5c681353a8befd336cc81",
-    "walkthrough.html": "9c3d8e721dbf934ec621a641e7722500c487bc5918fa1fe7993d4813f65eec95",
-    "run.json": "569fab42a5c4a4de7cbafb3347dec8a0ddd4ff747f7c59ceb2e5d4f0150fbe8e",
-    "historical-outcomes.json": "ccf49219b8301ccd92becf05a0626359fccd98c39c6eb3abf8043dd25cd5882c"
+    "index.html": "b534a4c77809191d41ee8f8d126e4beda91c64584755d72e06e74fbdf2a7de27",
+    "workflow.html": "e27e1c4b1cf086bb1c031b8f8847752343a81bb44d549009119e2c50454cec4c",
+    "app.html": "d126b25c8beddfab57cca5d387d840ccef06c8a83e3a6e476b497551fcbcf1cd",
+    "prototype.html": "2a90c364001935005eb4889362c56c879969a26c296b678aa46dc2f78550ead2",
+    "baseline.html": "58d69115293759d7ac444e0761fef5d1ef167f6afa7103ddcd89cc0a334a1670",
+    "walkthrough.html": "2ad9d3566459fb76326f207254d49ff21853d03a4c7f738781f521e4be19d993",
+    "run.json": "65deabfb5c8ced07f8b31bc7e248b14a91b7c4bf4a2d1a72ad05ba1b23a48a97",
+    "historical-outcomes.json": "7dcfd6839c5921a1fd932abc13f2f718b3598ab12f7a1aa38c16c36a1a1b280b"
   },
   "released_locally": false,
-  "manual_review": null,
+  "manual_review": {
+    "reviewer": "calvin",
+    "note": "placement of cta",
+    "sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
+    "at": "2026-10-09T02:18:05.733122+00:00",
+    "type": "local human attestation; identity is not authenticated"
+  },
   "separate_review": null,
   "context_version": 2,
   "publication": "Prepared files only; export does not publish or approve a release"

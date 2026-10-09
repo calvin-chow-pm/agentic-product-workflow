@@ -42,7 +42,7 @@ class PagesTests(unittest.TestCase):
         self.assertIn('Hosted snapshot:', html)
         self.assertNotIn('{{TOKEN}}', html)
         self.assertNotIn('fetch(', html)
-        for file in ['app.html', 'baseline.html']:
+        for file in ['app.html', 'prototype.html', 'baseline.html']:
             self.assertNotIn('fetch(', (SITE / file).read_text())
         self.assertFalse((SITE / '.runtime').exists())
 
@@ -57,6 +57,27 @@ class PagesTests(unittest.TestCase):
         self.assertEqual(history['dashboard_click_through']['after_percent'], 35)
         self.assertEqual(history['new_active_programs_created']['window'], 'month over month')
         self.assertEqual(history['evidence_type'], 'User-confirmed historical account; not synthetic demo telemetry')
+
+    def test_baseline_and_candidate_program_columns(self):
+        baseline = (SITE / 'baseline.html').read_text()
+        candidate = (SITE / 'app.html').read_text()
+        for html in (baseline, candidate):
+            self.assertIn('<th>Program</th><th>Course</th>', html)
+            self.assertNotIn('<th>Issued</th>', html)
+            self.assertNotIn('<th class="renewals">', html)
+        self.assertNotIn('id="select-all"', baseline)
+        self.assertIn('id="select-all"', candidate)
+        for html in (baseline, candidate):
+            self.assertNotIn('<span class="tag">All programs</span>', html)
+        self.assertNotIn('<th>Tags</th>', baseline)
+        self.assertNotIn('<th>Status</th>', baseline)
+        self.assertIn('<th>Tags</th>', candidate)
+        self.assertIn('<th>Certificate template</th>', candidate)
+        self.assertNotIn('{{TABLE_', candidate)
+        prototype = (SITE / 'prototype.html').read_text()
+        self.assertIn('Certification Programs Prototype · Calvin Chow', prototype)
+        self.assertIn('id="select-all"', prototype)
+        self.assertNotIn('fetch(', prototype)
 
 if __name__ == '__main__':
     unittest.main()

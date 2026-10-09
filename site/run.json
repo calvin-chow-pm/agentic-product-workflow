@@ -2,9 +2,15 @@
   "label": "Reconstructed from a workflow I built and used at Thinkific. Uses synthetic data and a demonstration application; original company code is excluded.",
   "mode": "actual local execution / synthetic inputs",
   "created_at": "2026-10-07T23:18:27.568487+00:00",
-  "phase": "reuse-result",
+  "phase": "approval",
   "placement": "overview",
-  "human_review": null,
+  "human_review": {
+    "reviewer": "calvin",
+    "note": "placement of cta",
+    "sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
+    "at": "2026-10-09T02:18:05.733122+00:00",
+    "type": "local human attestation; identity is not authenticated"
+  },
   "reviewer": null,
   "released": false,
   "qa": {
@@ -47,8 +53,8 @@
         "passed": true
       }
     ],
-    "sha256": "5ed939ca54e0f3d78e8d7c963ad728c2b93d2a904cbf42d696fd1197cc0b7458",
-    "at": "2026-10-08T17:47:28.373064+00:00",
+    "sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
+    "at": "2026-10-09T02:18:01.290627+00:00",
     "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
     "production": false
   },
@@ -944,13 +950,287 @@
         ],
         "scope": "Actual Codex reasoning completed in this chat from the refreshed demo prompt; an analysis and test plan, not an implemented export feature or measured outcome. Not an automatically running background agent."
       }
+    },
+    {
+      "id": 34,
+      "at": "2026-10-09T01:41:51.283801+00:00",
+      "phase": "build",
+      "actor": "Codex engineering",
+      "title": "Working CTA implemented on a local feature branch",
+      "evidence": {
+        "placement": "overview",
+        "commit": "cc4fafff3232d24d7d86c533020b59e26c2fa846",
+        "sha256": "95ed7c350b46f4e96b6c094ac93ff7ea90eab5f301f823308ce959c8a2479d2a",
+        "method": "Actual generated application and Git commit; no Cursor or historical code execution claimed."
+      }
+    },
+    {
+      "id": 35,
+      "at": "2026-10-09T01:41:51.392042+00:00",
+      "phase": "qa",
+      "actor": "QA worker",
+      "title": "Candidate checks completed",
+      "evidence": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Exactly one contextual CTA at selected placement",
+            "passed": true
+          },
+          {
+            "name": "Destination serves analytics view and useful dashboard action",
+            "passed": true
+          },
+          {
+            "name": "Overview does not impose a program filter; within-item preserves it",
+            "passed": true
+          },
+          {
+            "name": "Baseline has no contextual CTA",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /../data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /api/raw-data",
+            "passed": true
+          },
+          {
+            "name": "Event receiver stores QA-marked event separately from customer outcomes",
+            "passed": true
+          },
+          {
+            "name": "Demo sample-data and outcome disclosures remain visible",
+            "passed": true
+          }
+        ],
+        "sha256": "95ed7c350b46f4e96b6c094ac93ff7ea90eab5f301f823308ce959c8a2479d2a",
+        "at": "2026-10-09T01:41:51.390611+00:00",
+        "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
+        "production": false
+      }
+    },
+    {
+      "id": 36,
+      "at": "2026-10-09T01:50:39.312595+00:00",
+      "phase": "build",
+      "actor": "Codex engineering",
+      "title": "Working CTA implemented on a local feature branch",
+      "evidence": {
+        "placement": "overview",
+        "commit": "e0f6786ea037f03e4428eb44260e8e7c404fba62",
+        "sha256": "00e0f91663d2d0b0de8f3aea0723821bf18550f9f492428b573a161119bc07cc",
+        "method": "Actual generated application and Git commit; no Cursor or historical code execution claimed."
+      }
+    },
+    {
+      "id": 37,
+      "at": "2026-10-09T01:50:39.425727+00:00",
+      "phase": "qa",
+      "actor": "QA worker",
+      "title": "Candidate checks completed",
+      "evidence": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Exactly one contextual CTA at selected placement",
+            "passed": true
+          },
+          {
+            "name": "Destination serves analytics view and useful dashboard action",
+            "passed": true
+          },
+          {
+            "name": "Overview does not impose a program filter; within-item preserves it",
+            "passed": true
+          },
+          {
+            "name": "Baseline has no contextual CTA",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /../data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /api/raw-data",
+            "passed": true
+          },
+          {
+            "name": "Event receiver stores QA-marked event separately from customer outcomes",
+            "passed": true
+          },
+          {
+            "name": "Demo sample-data and outcome disclosures remain visible",
+            "passed": true
+          }
+        ],
+        "sha256": "00e0f91663d2d0b0de8f3aea0723821bf18550f9f492428b573a161119bc07cc",
+        "at": "2026-10-09T01:50:39.424063+00:00",
+        "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
+        "production": false
+      }
+    },
+    {
+      "id": 38,
+      "at": "2026-10-09T02:07:03.891189+00:00",
+      "phase": "build",
+      "actor": "Codex engineering",
+      "title": "Working CTA implemented on a local feature branch",
+      "evidence": {
+        "placement": "overview",
+        "commit": "14ed87f1d224c87db3736b63ef3733f5eac28d8d",
+        "sha256": "a1b396594591188738ba7ebc40d73439432ee7aa6fca404f66a34dfb63f5f964",
+        "method": "Actual generated application and Git commit; no Cursor or historical code execution claimed."
+      }
+    },
+    {
+      "id": 39,
+      "at": "2026-10-09T02:07:03.999247+00:00",
+      "phase": "qa",
+      "actor": "QA worker",
+      "title": "Candidate checks completed",
+      "evidence": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Exactly one contextual CTA at selected placement",
+            "passed": true
+          },
+          {
+            "name": "Destination serves analytics view and useful dashboard action",
+            "passed": true
+          },
+          {
+            "name": "Overview does not impose a program filter; within-item preserves it",
+            "passed": true
+          },
+          {
+            "name": "Baseline has no contextual CTA",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /../data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /api/raw-data",
+            "passed": true
+          },
+          {
+            "name": "Event receiver stores QA-marked event separately from customer outcomes",
+            "passed": true
+          },
+          {
+            "name": "Demo sample-data and outcome disclosures remain visible",
+            "passed": true
+          }
+        ],
+        "sha256": "a1b396594591188738ba7ebc40d73439432ee7aa6fca404f66a34dfb63f5f964",
+        "at": "2026-10-09T02:07:03.997048+00:00",
+        "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
+        "production": false
+      }
+    },
+    {
+      "id": 40,
+      "at": "2026-10-09T02:18:01.184486+00:00",
+      "phase": "build",
+      "actor": "Codex engineering",
+      "title": "Working CTA implemented on a local feature branch",
+      "evidence": {
+        "placement": "overview",
+        "commit": "a985cbf1acb014b5f5698cbf85457db37618b159",
+        "sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
+        "method": "Actual generated application and Git commit; no Cursor or historical code execution claimed."
+      }
+    },
+    {
+      "id": 41,
+      "at": "2026-10-09T02:18:01.292393+00:00",
+      "phase": "qa",
+      "actor": "QA worker",
+      "title": "Candidate checks completed",
+      "evidence": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Exactly one contextual CTA at selected placement",
+            "passed": true
+          },
+          {
+            "name": "Destination serves analytics view and useful dashboard action",
+            "passed": true
+          },
+          {
+            "name": "Overview does not impose a program filter; within-item preserves it",
+            "passed": true
+          },
+          {
+            "name": "Baseline has no contextual CTA",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /../data/usage.csv",
+            "passed": true
+          },
+          {
+            "name": "Raw dataset route denied: /api/raw-data",
+            "passed": true
+          },
+          {
+            "name": "Event receiver stores QA-marked event separately from customer outcomes",
+            "passed": true
+          },
+          {
+            "name": "Demo sample-data and outcome disclosures remain visible",
+            "passed": true
+          }
+        ],
+        "sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
+        "at": "2026-10-09T02:18:01.290627+00:00",
+        "scope": "Actual HTTP, HTML structure and event-receiver checks. No visual browser verification is claimed; these checks alone do not execute JavaScript.",
+        "production": false
+      }
+    },
+    {
+      "id": 42,
+      "at": "2026-10-09T02:18:05.736496+00:00",
+      "phase": "approval",
+      "actor": "calvin",
+      "title": "Manual review recorded",
+      "evidence": {
+        "reviewer": "calvin",
+        "note": "placement of cta",
+        "sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
+        "at": "2026-10-09T02:18:05.733122+00:00",
+        "type": "local human attestation; identity is not authenticated"
+      }
     }
   ],
   "learnings": {},
   "pending": [],
   "rationale": "Add an explicit View certification analytics link beside the program-list heading, opening all-program analytics. The corrected comparison and synthetic workflow notes support testing it; selection effects and dashboard value remain alternative explanations.",
-  "candidate_commit": "6d6877a2902a27571b8e6613f39e1025860fd7fd",
-  "candidate_sha256": "5ed939ca54e0f3d78e8d7c963ad728c2b93d2a904cbf42d696fd1197cc0b7458",
+  "candidate_commit": "a985cbf1acb014b5f5698cbf85457db37618b159",
+  "candidate_sha256": "e78cd1496524627c37d5eba0081f48d1a6b7d49ba38ac3268f7cdb31c4df5ea7",
   "initial-insight": {
     "source": "synthetic usage.csv",
     "source_sha256": "3e64e87d3f4b4fb67fa742912d5d47fda382e8a4f0540f06e4c1e58f9fa3da48",
