@@ -1,0 +1,26 @@
+// Verify accessible navigation and explanatory boundaries without live agents.
+const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict');
+const html = fs.readFileSync('site/system.html', 'utf8');
+const script = fs.readFileSync('site/system.js', 'utf8');
+const buttons = Array.from({length:4}, (_,i) => ({listeners:{}, attributes:{}, addEventListener(e,f){this.listeners[e]=f},setAttribute(k,v){this.attributes[k]=v},focus(){focused=i}}));
+const panels = Array.from({length:4}, () => ({hidden:false}));
+const nodes = {progress:{},previous:{listeners:{},addEventListener(e,f){this.listeners[e]=f}},next:{listeners:{},addEventListener(e,f){this.listeners[e]=f}}};
+let focused=-1;
+const context = {document:{querySelectorAll(s){return s==='[data-step]'?buttons:panels},getElementById(id){return nodes[id]}}};
+vm.createContext(context);vm.runInContext(script,context);
+function visible(i){assert.deepEqual(panels.map(p=>p.hidden),panels.map((p,n)=>n!==i));assert.equal(buttons[i].attributes['aria-pressed'],'true');assert.ok(nodes.progress.textContent.includes(`Step ${i+1} of 4`))}
+visible(0);assert.equal(nodes.previous.disabled,true);
+buttons[1].listeners.click();visible(1);
+let prevented=false;buttons[1].listeners.keydown({key:'ArrowRight',preventDefault(){prevented=true}});visible(2);assert.equal(focused,2);assert.equal(prevented,true);
+buttons[2].listeners.keydown({key:'End',preventDefault(){}});visible(3);assert.equal(nodes.next.disabled,true);
+buttons[3].listeners.keydown({key:'Home',preventDefault(){}});visible(0);
+buttons[0].listeners.keydown({key:'ArrowLeft',preventDefault(){}});visible(3);
+nodes.previous.listeners.click();visible(2);nodes.next.listeners.click();visible(3);
+assert.ok(html.includes('A real monitoring error and how I corrected it'));
+assert.ok(!html.includes('Illustrative decision receipt'));
+assert.ok(!html.includes('Example scores'));
+assert.ok(html.indexOf('class="case-study"') > html.indexOf('id="next"'));
+for(const dimension of ['Accuracy','Relevance','Usefulness','Information gain'])assert.ok(html.includes(dimension));
+assert.ok(html.includes('0 = fails'));assert.ok(html.includes('2 = partially meets'));assert.ok(html.includes('4 = strongly meets'));
+assert.ok(html.includes('href="workflow.html"'));assert.ok(!script.includes('fetch('));
+console.log('PASS: single visible panel, pressed state, keyboard navigation, boundary buttons, labeled illustrative evidence and static-only explanation.');
