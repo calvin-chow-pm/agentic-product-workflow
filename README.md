@@ -149,3 +149,7 @@ Browser automation was blocked by an unavailable security-policy check in the au
 ## Publication boundary
 
 Only this demonstration folder belongs in the public repository. `.runtime/`, its fixture Git history, caches and surrounding career-source files are excluded from the source bundle. The exported recordings contain synthetic evidence and public professional context. The repository and Pages site contain only this demonstration folder. No application submission or outreach is performed by the demo.
+
+## Monitoring and evaluation explanation
+
+`web/system.html`, `web/system.css`, and `web/system.js` supply a four-step explanation of routing, evaluation, diagnostic feedback, and decision receipts. The exporter preserves these in `site/`, and the cover provides distinct shipped-improvement and monitoring/evaluation paths. This is not a live evaluation system. A separate, optional example reconstructs a confirmed competitor-monitoring error and its correction, with paraphrased wording. It has no invented historical scores or attributed dashboard uplift. October 10 narrative edits preserve the existing recorded-run files and capture date; they do not recapture or approve a release.

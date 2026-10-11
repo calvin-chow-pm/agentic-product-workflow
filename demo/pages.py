@@ -64,11 +64,16 @@ def export(demo, output):
     prototype = re.sub(r'<div class="notice">.*?</div>', '<div class="notice">Certification prototype · Reconstructed with sample data</div>', prototype, count=1)
     for name, value in [('index.html', cover), ('workflow.html', workflow), ('app.html', candidate), ('prototype.html', prototype), ('baseline.html', baseline), ('walkthrough.html', playback)]:
         (output / name).write_text(value)
+    for name in ['system.html', 'system.css', 'system.js']:
+        (output / name).write_text((ROOT / 'web' / name).read_text())
     (output / '.nojekyll').write_text('')
     write(output / 'run.json', state)
     historical = json.loads((ROOT / 'docs/historical-outcomes.json').read_text())
     write(output / 'historical-outcomes.json', historical)
     manifest = {'captured_at': captured_at, 'format': 'Static snapshot of actual local execution with interactive browser prototype', 'agent_inference': 'Recorded only; no live inference or background workers on the hosted site', 'prototype_changes': 'Browser-tab sample edits only; preview events are not sent to a server', 'local_candidate_sha256': digest(candidate_path), 'source_cover_sha256': digest(ROOT / 'web/cover.html'), 'historical_outcomes': 'User-confirmed historical account, separate from synthetic execution records', 'source_workflow_sha256': digest(ROOT / 'web/workflow.html'), 'snapshot_files': {name: digest(output / name) for name in ['index.html', 'workflow.html', 'app.html', 'prototype.html', 'baseline.html', 'walkthrough.html', 'run.json', 'historical-outcomes.json']}, 'released_locally': state['released'], 'manual_review': state['human_review'], 'separate_review': state['reviewer'], 'context_version': state['context_pack']['version'], 'publication': 'Prepared files only; export does not publish or approve a release'}
+    manifest['source_system_files'] = {name: digest(ROOT / 'web' / name) for name in ['system.html', 'system.css', 'system.js']}
+    manifest['snapshot_files'].update({name: digest(output / name) for name in ['system.html', 'system.css', 'system.js']})
+    manifest['system_walkthrough'] = 'Explanatory reconstruction of monitoring and evaluation practices, with one optional confirmed competitor incident; separate from captured execution and historical delivery outcomes'
     write(output / 'manifest.json', manifest)
     return manifest
 
