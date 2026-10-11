@@ -153,3 +153,7 @@ Only this demonstration folder belongs in the public repository. `.runtime/`, it
 ## Monitoring and evaluation explanation
 
 `web/system.html`, `web/system.css`, and `web/system.js` supply a four-step explanation of routing, evaluation, diagnostic feedback, and decision receipts. The exporter preserves these in `site/`, and the cover provides distinct shipped-improvement and monitoring/evaluation paths. This is not a live evaluation system. A separate, optional example reconstructs a confirmed competitor-monitoring error and its correction, with paraphrased wording. It has no invented historical scores or attributed dashboard uplift. October 10 narrative edits preserve the existing recorded-run files and capture date; they do not recapture or approve a release.
+
+## Portfolio page analytics
+
+`analytics.js` loads Umami Cloud only on the published `calvin-chow-pm.github.io` domain and only in top-level pages. Both portfolios use one website ID, with per-page views, visits, and visitor estimates in the Umami dashboard. Local previews and embedded prototypes do not send analytics. Query strings and anchors are excluded from page grouping. Demo interaction events remain separate and are not sent to Umami. Tracking begins with installation; earlier traffic is unavailable.
