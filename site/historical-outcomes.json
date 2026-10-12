@@ -13,7 +13,7 @@
     "before_percent": 10,
     "after_percent": 35,
     "increase_percentage_points": 25,
-    "window": "two weeks",
+    "window": "within two weeks of release",
     "cohort": "all certification users with dashboard access"
   },
   "new_active_programs_created": {
