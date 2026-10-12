@@ -19,7 +19,7 @@ vm.runInContext("selected=4;render();selectPreview('baseline')",context);
 assert.equal(nodes['#preview'].src,'baseline.html?qa=1');assert.equal(nodes['#full-workspace'].href,'baseline.html?qa=1');
 vm.runInContext("selectPreview('candidate')",context);assert.equal(nodes['#preview'].src,'app.html?qa=1');
 vm.runInContext("action('release')",context);assert.ok(nodes['#message'].textContent.includes('Saved run'));
-vm.runInContext('show(5)',context);assert.ok(nodes['#content'].innerHTML.includes('10% → 35%'));assert.ok(nodes['#content'].innerHTML.includes('all certification users with dashboard access'));assert.ok(nodes['#content'].innerHTML.includes('Month over month'));assert.ok(nodes['#content'].innerHTML.includes('Reconstruction release status'));
+vm.runInContext('show(5)',context);assert.ok(nodes['#content'].innerHTML.includes('10% → 35%'));assert.ok(nodes['#content'].innerHTML.includes('The share of certification admins using analytics rose from 10% to 35%'));assert.ok(nodes['#content'].innerHTML.includes('Month over month'));assert.ok(nodes['#content'].innerHTML.includes('Reconstruction release status'));
 for(const file of ['app.html','baseline.html','walkthrough.html']){
  const html=fs.readFileSync('site/'+file,'utf8');
  for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(match[1]);
@@ -34,7 +34,8 @@ assert.ok(!cover.includes('<iframe'));
 assert.ok(cover.includes('id="prototype" href="https://calvin-chow-pm.github.io/agentic-product-workflow/prototype.html?view=overview"'));
 assert.ok(cover.includes('Try the certification prototype'));
 assert.ok(cover.includes('The system behind my agents'));
-assert.ok(cover.includes('10% → 35% dashboard engagement'));
+assert.ok(cover.includes('10% → 35% analytics engagement'));
+assert.ok(!cover.includes('dashboard engagement'));
 assert.ok(!cover.includes('click-through'));
 assert.ok(cover.includes('+4 pts NRR'));
 assert.ok(cover.includes('From activation to retention'));

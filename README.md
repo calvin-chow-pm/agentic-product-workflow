@@ -4,7 +4,7 @@
 
 I led certification and recertification at Thinkific from customer research through launch, then directed an AI agent team to find and fix a post-launch analytics adoption gap. Bulma, my staff-engineer bot, prepared the pull request through Cursor; after agent QA and my review in the preview environment, my engineering manager approved and merged it; then QA rechecked production.
 
-**+4 pts NRR** for target certification customers (93% → 97%, QoQ) after certification and recertification launched. **Dashboard engagement moved from 10% to 35%** within two weeks of release among certification users with dashboard access. Those windows are separate, not one causal chain. Deals lost mainly to certification gaps were cut in half (12 → 6, $143K). Certificate designer time, the setup guardrail, moved from about 230 seconds to about 190 seconds.
+**+4 pts NRR** for target certification customers (93% → 97%, QoQ) after certification and recertification launched. **Analytics engagement:** the share of certification admins using analytics rose from **10% to 35%** within two weeks of release. Those windows are separate, not one causal chain. Deals lost mainly to certification gaps were cut in half (12 → 6, $143K). Certificate designer time, the setup guardrail, moved from about 230 seconds to about 190 seconds.
 
 ## What you can open
 
