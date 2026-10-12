@@ -22,4 +22,11 @@ stepButtons.forEach((button, i) => {
 });
 document.getElementById('previous').addEventListener('click', () => selectStep(current - 1, true));
 document.getElementById('next').addEventListener('click', () => selectStep(current + 1, true));
+document.querySelectorAll('a[data-goto-step]').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    const index = Number(link.getAttribute('data-goto-step'));
+    if (Number.isInteger(index)) selectStep(index, true);
+  });
+});
 selectStep(0);

@@ -6,7 +6,7 @@ const buttons = Array.from({length:4}, (_,i) => ({listeners:{}, attributes:{}, a
 const panels = Array.from({length:4}, () => ({hidden:false}));
 const nodes = {progress:{},previous:{listeners:{},addEventListener(e,f){this.listeners[e]=f}},next:{listeners:{},addEventListener(e,f){this.listeners[e]=f}}};
 let focused=-1;
-const context = {document:{querySelectorAll(s){return s==='[data-step]'?buttons:panels},getElementById(id){return nodes[id]}}};
+const context = {document:{querySelectorAll(s){if(s==='[data-step]')return buttons;if(s==='.panel')return panels;return []},getElementById(id){return nodes[id]}}};
 vm.createContext(context);vm.runInContext(script,context);
 function visible(i){assert.deepEqual(panels.map(p=>p.hidden),panels.map((p,n)=>n!==i));assert.equal(buttons[i].attributes['aria-pressed'],'true');assert.ok(nodes.progress.textContent.includes(`Step ${i+1} of 4`))}
 visible(0);assert.equal(nodes.previous.disabled,true);

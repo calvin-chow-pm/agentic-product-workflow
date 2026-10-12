@@ -7,5 +7,6 @@
 .case-study{background:#edf3f4;border:1px solid var(--line);border-radius:8px;padding:22px;margin:0}.case-study summary{font-size:17px}.case-study .case-note{font-size:12px}.case-study h3{margin-top:22px}.receipt.agent-box{margin:24px 0}.receipt li{padding:12px 0}.receipt li p{margin:4px 0 0}
 
 .supporting-example{border-top:1px solid var(--line);padding-top:28px;margin-top:44px}.supporting-example>.eyebrow{margin:0 0 14px}
+.compact-review{padding:14px 16px}.compact-review h3{font-size:16px;margin:8px 0}.compact-review p{margin:6px 0 0}.review-jump{font-size:14px}
 
 .steps button[aria-pressed=true]:hover,.cta:hover{background:var(--action-hover);border-color:var(--action-border)}
