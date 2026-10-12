@@ -4,19 +4,19 @@
   "agent_inference": "Recorded only; no live inference or background workers on the hosted site",
   "prototype_changes": "Browser-tab sample edits only; preview events are not sent to a server",
   "local_candidate_sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
-  "source_cover_sha256": "1ef86d8eff016ffa1d2684411ac6ddae5f2a7c9c911e4b35b144c50aa72d4ae1",
+  "source_cover_sha256": "48cd8d2939092158e5a5e365a59ff2bc857ca11b2437b37df02717e0e42e5c18",
   "historical_outcomes": "User-confirmed historical account, separate from synthetic execution records",
-  "source_workflow_sha256": "7415fe7f71ab169e7c8418cf9b0cd000e657e54de3b5199cb74defdf24781699",
+  "source_workflow_sha256": "1da2be090f7187e470d48ff24ba7699075217aadb59866900c467d0d8ef448f6",
   "snapshot_files": {
-    "index.html": "b5b2f401d59b2d6e22676d67ccaca3fd1794c28659ea0974ac68ed5572d0905a",
-    "workflow.html": "749a13a0699cd54d192c355c1a4777a5d598b6bbbe52fbc2297ac3a7783b1d5e",
+    "index.html": "9784c0f79315efbb1f9f546a319c78b04692341129c2dbfeab3e8d30a8276141",
+    "workflow.html": "8e77a95030c1558a7f5b874a6f593ee80a3a4cf45a14f2ce3accd709d8f67387",
     "app.html": "d33a0389ada883613dab49437748165315c754ba677ca4505a5c1cabb7f9ac8b",
     "prototype.html": "e684b8c65e1f6f2d2a7abe4319a6041a1af7c3569bf1eda93c6c295b05ed646f",
     "baseline.html": "3fe140e2a7963bdf2c22d2a5f0a84afc25779cbc019fcdf24795ebd2bdd3b820",
     "walkthrough.html": "9887563b84aeb0647c4bad6c9baaa85e82f15cb96564a31637da4afabc03c6bf",
     "run.json": "3839cb5b77d8051ad6f2a03a6235a0b9d7a959730bd6503ff60b4a38b7b79584",
     "historical-outcomes.json": "035540d62f57e6b0e1483fd3857f5bf9433f2c0cc4595455478b6503d2930ab4",
-    "system.html": "e426293cb876f253cec938fc8a3d4cafc07ef4f619433f2270b34d733d6a0c7d",
+    "system.html": "a79c0515f998743c71921b50ad78b5fe0b9cb4caa3e22e516b2bab16f9d367db",
     "system.css": "d85b4a9e7ae6fea8f6e97961c6048c5e753b978816e5ab6d16e3b6da4677afc3",
     "system.js": "e343859337055f3866774928b8665b960b707395a7590f940050e8a905f8dde5",
     "analytics.js": "6e1f1efd6ebb014185660dfc41c4b5b40b5e062cb5a16a8f735f52011ba905a0"
@@ -27,7 +27,7 @@
   "context_version": 2,
   "publication": "Prepared files only; export does not publish or approve a release",
   "source_system_files": {
-    "system.html": "e426293cb876f253cec938fc8a3d4cafc07ef4f619433f2270b34d733d6a0c7d",
+    "system.html": "a79c0515f998743c71921b50ad78b5fe0b9cb4caa3e22e516b2bab16f9d367db",
     "system.css": "d85b4a9e7ae6fea8f6e97961c6048c5e753b978816e5ab6d16e3b6da4677afc3",
     "system.js": "e343859337055f3866774928b8665b960b707395a7590f940050e8a905f8dde5",
     "analytics.js": "6e1f1efd6ebb014185660dfc41c4b5b40b5e062cb5a16a8f735f52011ba905a0"

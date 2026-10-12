@@ -51,9 +51,6 @@ def export(demo, output):
     workflow = workflow.replace('href="/"', 'href="index.html"')
     workflow = workflow.replace("'/baseline'", "'baseline.html'").replace("'/app'", "'app.html'")
     workflow = workflow.replace("'/baseline?qa=1'", "'baseline.html?qa=1'")
-    notice = (' <span><strong>Hosted snapshot:</strong> captured on ' + captured_at[:10] + '. Agents do not run live here. '
-              '<a href="manifest.json">Snapshot provenance</a> · <a href="run.json">Execution record</a></span>')
-    workflow = workflow.replace('</div><div class="layout">', notice + '</div><div class="layout">', 1)
     values = chapters(demo)
     # Include the completed follow-up reasoning, not just prompt assembly.
     values[-1]['evidence']['applied_reasoning'] = [e['evidence'] for e in state['events'] if e['phase'] == 'reuse-result']
