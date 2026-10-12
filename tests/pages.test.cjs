@@ -34,8 +34,13 @@ assert.ok(!cover.includes('<iframe'));
 assert.ok(cover.includes('id="prototype" href="https://calvin-chow-pm.github.io/agentic-product-workflow/prototype.html?view=overview"'));
 assert.ok(cover.includes('Try the certification prototype'));
 assert.ok(cover.includes('The system behind my agents'));
-assert.ok(cover.includes('10% → 35% analytics engagement'));
+assert.ok(cover.includes('<strong>10% → 35% analytics engagement</strong>'));
 assert.ok(!cover.includes('dashboard engagement'));
+assert.ok(cover.includes('Creation stayed simple<br>as features were added'));
+assert.ok(cover.includes('↑ Read from activation up'));
+assert.ok(cover.includes('How my agent team’s evidence was scored, corrected and used in decisions.'));
+assert.ok(cover.indexOf('Shipped improvement')<cover.indexOf('AI Second Brain'));
+assert.ok(cover.indexOf('AI Second Brain')<cover.indexOf('Monitoring &amp; evaluation'));
 assert.ok(!cover.includes('click-through'));
 assert.ok(cover.includes('+4 pts NRR'));
 assert.ok(cover.includes('From activation to retention'));
@@ -51,6 +56,6 @@ assert.ok(!nodes['#content'].innerHTML.includes('does not establish Calvin’s h
 console.log('PASS: concise cover order, direct prototype link, Second Brain context and historical placement rationale.');
 
 vm.runInContext('show(0)',context);assert.ok(nodes['#content'].innerHTML.includes('<table>'));assert.ok(!nodes['#content'].innerHTML.includes('class="metrics"'));assert.ok(nodes['#content'].innerHTML.includes('28-day window'));
-vm.runInContext('show(4)',context);assert.ok(nodes['#content'].innerHTML.indexOf('<iframe')<nodes['#content'].innerHTML.indexOf('View checks'));assert.ok(nodes['#content'].innerHTML.includes('Demo checks: PASS'));
+vm.runInContext('show(4)',context);assert.ok(nodes['#content'].innerHTML.indexOf('<iframe')<nodes['#content'].innerHTML.indexOf('9/9 automated checks passed'));assert.ok(!nodes['#content'].innerHTML.includes('View checks'));assert.ok(nodes['#content'].innerHTML.includes('<summary>9/9 automated checks passed</summary>'));
 vm.runInContext("state.events=state.events.filter(e=>e.phase!=='response');state.pending_requests=['missing'];show(2)",context);assert.ok(nodes['#content'].innerHTML.includes('Response pending'));assert.ok(nodes['#content'].innerHTML.includes('still pending'));
 console.log('PASS: streamlined insight, historical decision priority, prototype-first QA, and visible pending evidence.');
