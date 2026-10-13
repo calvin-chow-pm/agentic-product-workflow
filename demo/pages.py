@@ -7,6 +7,36 @@ from .core import ROOT, Demo, digest, now, write
 from .record import chapters
 
 
+PORTFOLIO = 'https://calvin-chow-pm.github.io'
+REDIRECTS = {
+    'index.html': '/',
+    'workflow.html': '/workflow/',
+    'system.html': '/system/',
+    'prototype.html': '/prototype/',
+    'app.html': '/app/',
+    'baseline.html': '/baseline/',
+    'walkthrough.html': '/walkthrough/',
+}
+
+
+def redirect_page(path):
+    canonical = PORTFOLIO + path
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="{canonical}">
+<meta http-equiv="refresh" content="0; url={canonical}">
+<title>Redirecting to the portfolio</title>
+<script>location.replace("{path}" + location.search + location.hash)</script>
+</head>
+<body>
+<p><a href="{canonical}">Continue to the portfolio</a></p>
+</body>
+</html>
+'''
+
+
 def with_analytics(source):
     tag = '<script defer src="analytics.js"></script>'
     return source if tag in source else source.replace('</head>', tag + '\n</head>', 1)
@@ -67,6 +97,8 @@ def export(demo, output):
         (output / name).write_text(with_analytics(value))
     for name in ['system.html', 'system.css', 'system.js', 'analytics.js']:
         (output / name).write_text(with_analytics((ROOT / 'web' / name).read_text()) if name.endswith('.html') else (ROOT / 'web' / name).read_text())
+    for name, path in REDIRECTS.items():
+        (output / name).write_text(redirect_page(path))
     (output / '.nojekyll').write_text('')
     write(output / 'run.json', state)
     historical = json.loads((ROOT / 'docs/historical-outcomes.json').read_text())

@@ -1,6 +1,7 @@
 // Verify accessible navigation and explanatory boundaries without live agents.
 const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict');
-const html = fs.readFileSync('site/system.html', 'utf8');
+const html = fs.readFileSync('web/system.html', 'utf8');
+const published = fs.readFileSync('site/system.html', 'utf8');
 const script = fs.readFileSync('site/system.js', 'utf8');
 const buttons = Array.from({length:4}, (_,i) => ({listeners:{}, attributes:{}, addEventListener(e,f){this.listeners[e]=f},setAttribute(k,v){this.attributes[k]=v},focus(){focused=i}}));
 const panels = Array.from({length:4}, () => ({hidden:false}));
@@ -26,4 +27,7 @@ assert.ok(html.indexOf('class="case-study"') > html.indexOf('id="next"'));
 for(const dimension of ['Accuracy','Relevance','Usefulness','Information gain'])assert.ok(html.includes(dimension));
 assert.ok(html.includes('0 = fails'));assert.ok(html.includes('2 = partially meets'));assert.ok(html.includes('4 = strongly meets'));
 assert.ok(html.includes('href="workflow.html"'));assert.ok(!script.includes('fetch('));
+assert.ok(published.includes('location.replace("/system/" + location.search + location.hash)'));
+assert.ok(published.includes('rel="canonical" href="https://calvin-chow-pm.github.io/system/"'));
+assert.ok(published.includes('http-equiv="refresh" content="0; url=https://calvin-chow-pm.github.io/system/"'));
 console.log('PASS: single visible panel, pressed state, keyboard navigation, boundary buttons, labeled illustrative evidence and static-only explanation.');

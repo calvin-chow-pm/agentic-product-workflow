@@ -1,53 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="How Calvin Chow coordinated monitoring agents, evaluated insights, and connected human-reviewed recommendations to product actions."><title>Monitoring, evaluation &amp; human judgment · Calvin Chow</title><link rel="stylesheet" href="system.css?v=20261013-cta-gap"><script src="system.js" defer></script><script defer src="analytics.js"></script>
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="https://calvin-chow-pm.github.io/system/">
+<meta http-equiv="refresh" content="0; url=https://calvin-chow-pm.github.io/system/">
+<title>Redirecting to the portfolio</title>
+<script>location.replace("/system/" + location.search + location.hash)</script>
 </head>
-<body><a class="skip" href="#walkthrough">Skip to walkthrough</a>
-<header><div class="wrap"><a class="back" href="index.html">← Agentic Product Workflow</a><p class="eyebrow">Calvin Chow / System overview</p><h1>How my agent team’s evidence was scored, corrected and used in decisions</h1><p class="deck">At Thinkific, I built and operated monitoring and product delivery workflows. This walkthrough explains how evidence was routed, evaluated, corrected, and connected to action.</p><div class="legend"><span class="badge agent">Agent action</span><span class="badge human">Human review</span></div></div></header>
-<main class="wrap" id="walkthrough">
-<nav class="steps" aria-label="Walkthrough steps">
-<button type="button" data-step="0" aria-pressed="true" aria-controls="gather">01 · Gather &amp; route</button>
-<button type="button" data-step="1" aria-pressed="false" aria-controls="evaluate">02 · Evaluate</button>
-<button type="button" data-step="2" aria-pressed="false" aria-controls="review">03 · Review &amp; improve</button>
-<button type="button" data-step="3" aria-pressed="false" aria-controls="receipt">04 · Connect to action</button>
-</nav>
-<p class="progress" id="progress" aria-live="polite">Step 1 of 4 · Gather &amp; route</p>
-<section id="gather" class="panel" aria-labelledby="gather-title">
-<p class="eyebrow">01 / Gather &amp; route</p><h2 id="gather-title">Give each agent the context its job needs.</h2>
-<div class="architecture" aria-label="Evidence flows to a broad coordinating context and focused specialist context, with Calvin reviewing consequential decisions.">
-<div class="source-row"><span>Customer feedback</span><span>Competitor changes</span><span>Industry developments</span><span>Sales &amp; support themes</span></div>
-<div class="connector" aria-hidden="true">↓</div>
-<article class="agent-box coordinator"><span class="badge agent">Agent action</span><h3>Calvin-bot · Coordinating context</h3><p>Product domain, strategy, metrics, and the relevant evidence, together with my <code>soul.md</code>: communication preferences, decision principles, prioritization, voice, and stakeholder context.</p></article>
-<div class="connector" aria-hidden="true">↓ Route only the relevant context ↓</div>
-<div class="specialists"><article class="agent-box"><h3>Monitor &amp; synthesize</h3><p>Source evidence, domain boundaries, evaluation anchors, and correction history.</p></article><article class="agent-box"><h3>Prioritize &amp; plan</h3><p>Customer themes, strategy, metrics, impact and value, and reviewed backlog context.</p></article><article class="agent-box"><h3>Implement &amp; check</h3><p>Approved work, technical context from engineering, and product behavior to validate.</p></article></div>
-<div class="connector" aria-hidden="true">↓</div><article class="agent-box"><span class="badge agent">Agent action</span><h3>Prepare proposed work in Linear</h3><p>The team gathers evidence, evaluates insights, and prioritizes proposed work in the Linear backlog.</p></article>
-<div class="connector" aria-hidden="true">↓</div>
-<article class="human-box compact-review"><span class="badge human">Human review</span><h3>Gates before the work ships</h3><p>I review priorities in Linear; my engineering manager approves code; release has a final human gate.</p><p class="review-jump"><a href="#receipt" data-goto-step="3">Human review gates → step 4</a></p></article></div>
-<details><summary>How the team worked at Thinkific</summary><p>At Thinkific, I built and operated customer-feedback grouping and prioritization, competitive and industry monitoring, sales/support synthesis, and product delivery workflows. Alongside another PM leading AI experimentation, I tested, implemented, and shared these workflows.</p><p>Competitive monitoring covered credentialing, pricing, packaging, and monetization, with a daily digest and weekly brief. Specialist context was kept focused instead of giving every agent every memory.</p></details>
-
-</section>
-<section id="evaluate" class="panel" hidden aria-labelledby="evaluate-title">
-<p class="eyebrow">02 / Evaluate</p><h2 id="evaluate-title">Scored on 4 dimensions against 15 hand-scored examples</h2><p class="lead">I manually scored 15 past competitive insights to establish anchors. Each dimension was scored separately: <strong>0 = fails</strong>, <strong>2 = partially meets</strong>, <strong>4 = strongly meets</strong>. Approval history was a separate routing signal, not an accuracy measure.</p>
-<p class="lead">Real example: an agent read a competitor’s support-page update as a new, plan-exclusive launch. The page said neither. <a href="#supporting-example">See the correction ↓</a></p>
-<div class="rubric"><article><h3>Accuracy</h3><p>Does the insight faithfully reflect its source evidence?</p></article><article><h3>Relevance</h3><p>Does it belong to the product domain and question being considered?</p></article><article><h3>Usefulness</h3><p>Does it help a product decision or a meaningful next step?</p></article><article><h3>Information gain</h3><p>Does it add something beyond what the system already knows?</p></article></div>
-
-</section>
-<section id="review" class="panel" hidden aria-labelledby="review-title">
-<p class="eyebrow">03 / Review &amp; improve</p><h2 id="review-title">Make feedback specific enough to act on.</h2>
-<div class="review-grid"><article class="human-box"><span class="badge human">Human review</span><h3>Give diagnostic feedback</h3><dl><dt>Failure reason</dt><dd>What went wrong?</dd><dt>Expected correction</dt><dd>What should change?</dd><dt>Affected component</dt><dd>Which role or part of the workflow needs the correction?</dd></dl></article><article class="agent-box"><span class="badge agent">Agent action</span><h3>Keep learning relevant to each role</h3><p>Reviewed corrections update the relevant specialist’s memory and instructions. Calvin-bot keeps the broader decision context.</p></article></div>
-<h3 class="subheading">Check changes before relying on them</h3><ol class="checks"><li><strong>Reviewed memory updates</strong><p>I reviewed consequential updates before applying them to future work.</p></li><li><strong>Historical replay</strong><p>I replayed the existing memory queue to compare outputs before and after a consequential update.</p></li><li><strong>One-week parallel comparison</strong><p>New insights went through old and new evaluation approaches for a week so I could compare differences.</p></li><li><strong>Source sampling every two weeks</strong><p>Every two weeks, I manually sampled sources to check collection, evidence extraction, grouping, and scoring.</p></li></ol>
-
-</section>
-<section id="receipt" class="panel" hidden aria-labelledby="receipt-title">
-<p class="eyebrow">04 / Connect to action</p><h2 id="receipt-title">Learn from what happened after approval.</h2><p class="lead">When an insight influenced product work, I kept a lightweight decision receipt linking the evidence to the decision, action, and observed outcome.</p>
-<div class="receipt agent-box"><span class="badge agent">Agent record</span><h3>Keep the decision trail together</h3><ol><li><strong>Evidence</strong><p>Sources and the customer or business problem.</p></li><li><strong>Recommendation</strong><p>The proposed response and its reasoning.</p></li><li><strong>Human decision</strong><p>What I approved, changed, or declined, and why.</p></li><li><strong>Product action</strong><p>What was actually implemented.</p></li><li><strong>Observed outcome</strong><p>What happened, supported by evidence and its limits.</p></li></ol></div>
-<p class="lead">The receipt feeds relevant outcomes back to the coordinating and specialist agents, so they can learn beyond whether a suggestion was approved.</p>
-<div class="human-box"><span class="badge human">Human review</span><h3>Review the work before it ships</h3><p>I review priorities in Linear and validate product behavior; my engineering manager approves code; release has a final human gate.</p></div>
-</section>
-<div class="navigation"><button type="button" id="previous" disabled>← Previous</button><button type="button" id="next">Next: Evaluate →</button></div>
-<section class="supporting-example" id="supporting-example" aria-labelledby="supporting-example-label"><p class="eyebrow" id="supporting-example-label">Supporting example</p>
-<details class="case-study"><summary>A real monitoring error and how I corrected it</summary><p class="case-note">Reconstructed from a competitor-monitoring incident at Thinkific; wording is paraphrased.</p><h3>The signal</h3><p>A competitor changed its certification analytics support page. It described analytics exports across plans, with capabilities depending on plan level, and still did not fully support direct API integration with customers’ custom data warehouses.</p><h3>The agent’s interpretation</h3><p>Certification analytics access, exports, and warehouse integrations were all new and exclusive to the competitor’s Plus-equivalent plan.</p><h3>The correction</h3><p>The page did not establish that launch or exclusivity. Analytics access, plan-dependent exports, and warehouse integration needed to be evaluated separately, with the integration limitation preserved.</p><h3>Why it mattered</h3><p>A relevant competitive signal can still be inaccurate. Checking the source exposed an unsupported premise for a product or packaging response.</p></details>
-</section>
-<div class="delivery-link"><h3>Follow a customer problem through delivery</h3><p>The separate shipped-improvement walkthrough shows investigation, product decisions, implementation, and review for certification analytics discovery.</p><a class="cta" href="workflow.html">Explore the shipped-improvement workflow →</a></div>
-
-</main><footer class="wrap"><p>Reconstructed from my Thinkific monitoring work; diagrams generalized; no live agents.</p><a href="https://calvin-chow-pm.github.io/pm-ai-second-brain/">Explore the AI Second Brain case study ↗</a></footer></body></html>
+<body>
+<p><a href="https://calvin-chow-pm.github.io/system/">Continue to the portfolio</a></p>
+</body>
+</html>

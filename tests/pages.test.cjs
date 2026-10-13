@@ -1,35 +1,31 @@
-// Render the exported page in a DOM stub; no browser or live inference.
+// Published Pages files redirect to the portfolio root and keep query and hash.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
-const source=fs.readFileSync('site/workflow.html','utf8');
-assert.ok(!source.includes('href="walkthrough.html"'));
-assert.ok(!source.includes('Inspect execution details'));
-assert.ok(!source.includes('The product story'));
-assert.ok(source.includes('Repository &amp; supporting records'));
-assert.equal((source.match(/class="disclosure"/g)||[]).length,1);
-const nodes={};let removed=[];
-const context={document:{querySelector:s=>nodes[s]??={style:{},setAttribute(k,v){this[k]=v}},querySelectorAll:()=>['Try the local release checks','Try the learning & context refresh','Design alternatives'].map(text=>({querySelector:()=>({textContent:text}),remove(){removed.push(text)}}))},location:{hash:''},history:{replaceState(){}},setTimeout(){}};
-vm.createContext(context);vm.runInContext(source.match(/<script>([\s\S]*?)<\/script>/)[1],context);
-assert.ok(nodes['#content'].innerHTML.includes('Adoption was healthy'));
-for(let selected=0;selected<7;selected++){vm.runInContext(`show(${selected})`,context);assert.ok(nodes['#content'].innerHTML.includes('section'));}
-assert.ok(removed.includes('Try the local release checks'));
-assert.ok(removed.includes('Try the learning & context refresh'));
-assert.ok(!removed.includes('Design alternatives'));
-assert.ok(nodes['#content'].innerHTML.includes('Defined successful exports'));
-vm.runInContext("selected=4;render();selectPreview('baseline')",context);
-assert.equal(nodes['#preview'].src,'baseline.html?qa=1');assert.equal(nodes['#full-workspace'].href,'baseline.html?qa=1');
-vm.runInContext("selectPreview('candidate')",context);assert.equal(nodes['#preview'].src,'app.html?qa=1');
-vm.runInContext("action('release')",context);assert.ok(nodes['#message'].textContent.includes('Saved run'));
-vm.runInContext('show(5)',context);assert.ok(nodes['#content'].innerHTML.includes('<strong>10% → 35%</strong><span>analytics engagement</span>'));assert.ok(nodes['#content'].innerHTML.includes('Share of certification admins using analytics</small>'));assert.ok(!nodes['#content'].innerHTML.includes('within two weeks of release'));assert.ok(nodes['#content'].innerHTML.includes('<strong>+10%</strong><span>new active programs, month over month after release</span>'));assert.ok(nodes['#content'].innerHTML.includes('Observed after release; not solely attributable to this change.'));assert.ok(nodes['#content'].innerHTML.indexOf('outcome-metrics')<nodes['#content'].innerHTML.indexOf('Before human review'));assert.ok(nodes['#content'].innerHTML.includes('Reconstruction release status'));
-for(const file of ['app.html','baseline.html','walkthrough.html']){
- const html=fs.readFileSync('site/'+file,'utf8');
- for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(match[1]);
+const redirects={
+  'index.html':['/','https://calvin-chow-pm.github.io/'],
+  'workflow.html':['/workflow/','https://calvin-chow-pm.github.io/workflow/'],
+  'system.html':['/system/','https://calvin-chow-pm.github.io/system/'],
+  'prototype.html':['/prototype/','https://calvin-chow-pm.github.io/prototype/'],
+  'app.html':['/app/','https://calvin-chow-pm.github.io/app/'],
+  'baseline.html':['/baseline/','https://calvin-chow-pm.github.io/baseline/'],
+  'walkthrough.html':['/walkthrough/','https://calvin-chow-pm.github.io/walkthrough/'],
+};
+for(const [file,[path,canonical]] of Object.entries(redirects)){
+  const html=fs.readFileSync('site/'+file,'utf8');
+  assert.ok(html.includes(`rel="canonical" href="${canonical}"`), file);
+  assert.ok(html.includes(`http-equiv="refresh" content="0; url=${canonical}"`), file);
+  assert.ok(html.includes(`location.replace("${path}" + location.search + location.hash)`), file);
+  const location={search:'?view=overview',hash:'#5'};
+  let replaced='';
+  location.replace=url=>{replaced=url;};
+  const context={location};
+  vm.createContext(context);
+  vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);
+  assert.equal(replaced, path+'?view=overview#5', file);
 }
-assert.ok(fs.readFileSync('site/app.html','utf8').includes('View certification analytics'));
-assert.ok(!fs.readFileSync('site/baseline.html','utf8').includes('data-event="analytics_cta_clicked"'));
-console.log('PASS: seven static tabs, relative preview paths, hidden local controls, captured reasoning, safe action fallback and script syntax.');
+console.log('PASS: published pages redirect to the portfolio root and keep query and hash.');
 
-// The cover leads with strategy and outcomes; the full prototype stays one click away.
-const cover=fs.readFileSync('site/index.html','utf8');
+// The cover source still leads with strategy and outcomes.
+const cover=fs.readFileSync('web/cover.html','utf8');
 assert.ok(!cover.includes('<iframe'));
 assert.ok(cover.includes('id="prototype" href="https://calvin-chow-pm.github.io/agentic-product-workflow/prototype.html?view=overview"'));
 assert.ok(cover.includes('Try the certification prototype'));
@@ -67,11 +63,4 @@ assert.ok(cover.indexOf('id="outcomes"')<cover.indexOf('id="strategy"'));
 assert.ok(cover.indexOf('id="outcomes"')<cover.indexOf('<div class="actions bottom">'));
 assert.ok(!cover.includes('Saved execution evidence'));
 assert.ok(!cover.includes('Why analytics belonged on the overview'));
-vm.runInContext('show(3)',context);assert.ok(nodes['#content'].innerHTML.includes('Program-specific analytics was planned for a later slice'));assert.ok(nodes['#content'].innerHTML.indexOf('I chose the certification overview')<nodes['#content'].innerHTML.indexOf('Validation lesson'));
-assert.ok(!nodes['#content'].innerHTML.includes('does not establish Calvin’s historical final placement'));
 console.log('PASS: concise cover order, direct prototype link, Second Brain context and historical placement rationale.');
-
-vm.runInContext('show(0)',context);assert.ok(nodes['#content'].innerHTML.includes('<table>'));assert.ok(!nodes['#content'].innerHTML.includes('class="metrics"'));assert.ok(nodes['#content'].innerHTML.includes('28-day window'));
-vm.runInContext('show(4)',context);assert.ok(nodes['#content'].innerHTML.indexOf('<iframe')<nodes['#content'].innerHTML.indexOf('9/9 automated checks passed'));assert.ok(!nodes['#content'].innerHTML.includes('View checks'));assert.ok(nodes['#content'].innerHTML.includes('<summary>9/9 automated checks passed</summary>'));
-vm.runInContext("state.events=state.events.filter(e=>e.phase!=='response');state.pending_requests=['missing'];show(2)",context);assert.ok(nodes['#content'].innerHTML.includes('Response pending'));assert.ok(nodes['#content'].innerHTML.includes('still pending'));
-console.log('PASS: streamlined insight, historical decision priority, prototype-first QA, and visible pending evidence.');
