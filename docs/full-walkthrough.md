@@ -25,9 +25,9 @@ The interactive workflow is the main experience. Edited recordings remain reposi
 
 ## GitHub Pages version
 
-`site/` is the prepared hosting version. It opens with a concise cover page (`index.html`), then the seven-step workflow (`workflow.html`) and interactive baseline/candidate prototype, with a clearly labeled **saved snapshot of actual local execution**. It does not run agents, process warehouse requests, record server telemetry, or change release/learning approvals. Sample program edits stay in the visitor’s browser tab. The snapshot includes the approved lesson and subsequent Codex reasoning; local release remains pending. `site/manifest.json` records the source and output hashes.
+`site/` is what GitHub Pages publishes. `index.html`, `workflow.html`, `system.html`, `prototype.html`, `app.html`, `baseline.html`, and `walkthrough.html` redirect to the portfolio root and keep the query string and hash. They do not run agents, process warehouse requests, record server telemetry, or change release/learning approvals. `site/manifest.json` records the source and output hashes.
 
-For local review, open the cover at **http://127.0.0.1:8766/** or the static hosting preview at **http://127.0.0.1:8767/**. The cover leads with customer need, product response, post-launch investigation and outcomes. A smaller prototype link sits beside the product response; the larger interactive preview remains in Build & QA. The standalone prototype is published at `https://calvin-chow-pm.github.io/agentic-product-workflow/prototype.html?view=overview`. It opens the new certification experience directly, with browser-only sample edits. Future resume bullets can link to the cover, the standalone prototype, or `index.html#strategy`, `index.html#outcomes` and `workflow.html#2` for specific evidence. The walkthrough explains that its requests, analysis, agent outputs and checks are captured reconstruction records, rather than live agents on the hosted site.
+For local review, open the cover at **http://127.0.0.1:8766/** or the static hosting preview at **http://127.0.0.1:8767/**. The cover leads with customer need, product response, post-launch investigation and outcomes. A smaller prototype link sits beside the product response; the larger interactive preview remains in Build & QA. The standalone prototype is published at `https://calvin-chow-pm.github.io/prototype/?view=overview`. It opens the new certification experience directly, with browser-only sample edits. Future resume bullets can link to the cover, the standalone prototype, or `https://calvin-chow-pm.github.io/#strategy`, `https://calvin-chow-pm.github.io/#outcomes` and `https://calvin-chow-pm.github.io/workflow/#2` for specific evidence. The walkthrough explains that its requests, analysis, agent outputs and checks are captured reconstruction records, rather than live agents on the hosted site.
 
 To publish when ready:
 
@@ -36,7 +36,7 @@ To publish when ready:
 3. In **Actions**, choose **Publish demo to GitHub Pages → Run workflow**. It validates and publishes only `site/`.
 4. Use the URL shown by the deployment as the application link.
 
-Updates to `site/` merged into `main` automatically validate and publish the prepared snapshot. The manual Run workflow option remains available. The public demo is at https://calvin-chow-pm.github.io/agentic-product-workflow/. Setup follows [GitHub’s custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+Updates to `site/` merged into `main` automatically validate and publish the prepared snapshot. The manual Run workflow option remains available. The public portfolio is at https://calvin-chow-pm.github.io/. The HTML files Pages serves from `site/` redirect to that root (`/`, `/workflow/`, `/system/`, `/prototype/`, `/app/`, `/baseline/`, `/walkthrough/`) and keep the query string and hash. Setup follows [GitHub’s custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
 To preview just the static hosting version:
 

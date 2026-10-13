@@ -8,7 +8,7 @@ I led certification and recertification at Thinkific from customer research thro
 
 ## What you can open
 
-The public site is [https://calvin-chow-pm.github.io/agentic-product-workflow/](https://calvin-chow-pm.github.io/agentic-product-workflow/). `site/index.html` is the cover, `site/workflow.html` is the seven-step walkthrough, and `site/system.html` is monitoring and evaluation. Sample program edits stay in the browser tab. The hosted pages do not run agents, read a warehouse, or approve a release.
+The portfolio is [https://calvin-chow-pm.github.io/](https://calvin-chow-pm.github.io/). Pages published from this repository redirect there and keep the query string and hash: `/` (cover), `/workflow/`, `/system/`, `/prototype/`, `/app/`, `/baseline/`, and `/walkthrough/`. Sample program edits stay in the browser tab on the portfolio site. The hosted pages do not run agents, read a warehouse, or approve a release.
 
 Preview the static site locally:
 

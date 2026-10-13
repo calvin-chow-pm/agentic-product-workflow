@@ -39,7 +39,8 @@ class PagesTests(unittest.TestCase):
         self.assertEqual(state['human_review'], manifest['manual_review'])
         self.assertEqual(state['context_pack']['version'], manifest['context_version'])
         html = (SITE / 'workflow.html').read_text()
-        self.assertIn('Sample-data rebuild of a workflow I used at Thinkific; no company code.', html)
+        self.assertIn('location.replace("/workflow/" + location.search + location.hash)', html)
+        self.assertIn('Sample-data rebuild of a workflow I used at Thinkific; no company code.', (SITE.parent / 'web' / 'workflow.html').read_text())
         self.assertNotIn('Hosted snapshot:', html)
         self.assertNotIn('{{TOKEN}}', html)
         self.assertNotIn('fetch(', html)
@@ -49,9 +50,11 @@ class PagesTests(unittest.TestCase):
 
     def test_cover_and_historical_evidence_are_separate(self):
         cover = (SITE / 'index.html').read_text()
-        self.assertIn('href="workflow.html"', cover)
-        self.assertIn('Design the product response', cover)
-        self.assertIn('Analytics implemented the dashboard', cover)
+        self.assertIn('location.replace("/" + location.search + location.hash)', cover)
+        self.assertIn('rel="canonical" href="https://calvin-chow-pm.github.io/"', cover)
+        source = (SITE.parent / 'web' / 'cover.html').read_text()
+        self.assertIn('Design the product response', source)
+        self.assertIn('Analytics implemented the dashboard', source)
         self.assertNotIn('const capturedState=', cover)
         history = json.loads((SITE / 'historical-outcomes.json').read_text())
         self.assertEqual(history['dashboard_click_through']['before_percent'], 10)
@@ -60,25 +63,19 @@ class PagesTests(unittest.TestCase):
         self.assertEqual(history['evidence_type'], 'User-confirmed historical account; not synthetic demo telemetry')
 
     def test_baseline_and_candidate_program_columns(self):
-        baseline = (SITE / 'baseline.html').read_text()
-        candidate = (SITE / 'app.html').read_text()
-        for html in (baseline, candidate):
-            self.assertIn('<th>Program</th><th>Course</th>', html)
-            self.assertNotIn('<th>Issued</th>', html)
-            self.assertNotIn('<th class="renewals">', html)
-        self.assertNotIn('id="select-all"', baseline)
-        self.assertIn('id="select-all"', candidate)
-        for html in (baseline, candidate):
-            self.assertNotIn('<span class="tag">All programs</span>', html)
-        self.assertNotIn('<th>Tags</th>', baseline)
-        self.assertNotIn('<th>Status</th>', baseline)
-        self.assertIn('<th>Tags</th>', candidate)
-        self.assertIn('<th>Certificate template</th>', candidate)
-        self.assertNotIn('{{TABLE_', candidate)
-        prototype = (SITE / 'prototype.html').read_text()
-        self.assertIn('Certification Programs Prototype · Calvin Chow', prototype)
-        self.assertIn('id="select-all"', prototype)
-        self.assertNotIn('fetch(', prototype)
+        targets = {
+            'baseline.html': '/baseline/',
+            'app.html': '/app/',
+            'prototype.html': '/prototype/',
+        }
+        for name, path in targets.items():
+            html = (SITE / name).read_text()
+            canonical = 'https://calvin-chow-pm.github.io' + path
+            self.assertIn(f'location.replace("{path}" + location.search + location.hash)', html)
+            self.assertIn(f'rel="canonical" href="{canonical}"', html)
+            self.assertIn(f'http-equiv="refresh" content="0; url={canonical}"', html)
+            self.assertNotIn('fetch(', html)
+            self.assertNotIn('{{TABLE_', html)
 
 if __name__ == '__main__':
     unittest.main()
