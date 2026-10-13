@@ -19,7 +19,7 @@ vm.runInContext("selected=4;render();selectPreview('baseline')",context);
 assert.equal(nodes['#preview'].src,'baseline.html?qa=1');assert.equal(nodes['#full-workspace'].href,'baseline.html?qa=1');
 vm.runInContext("selectPreview('candidate')",context);assert.equal(nodes['#preview'].src,'app.html?qa=1');
 vm.runInContext("action('release')",context);assert.ok(nodes['#message'].textContent.includes('Saved run'));
-vm.runInContext('show(5)',context);assert.ok(nodes['#content'].innerHTML.includes('10% → 35%'));assert.ok(nodes['#content'].innerHTML.includes('The share of certification admins using analytics rose from 10% to 35%'));assert.ok(nodes['#content'].innerHTML.includes('Month over month'));assert.ok(nodes['#content'].innerHTML.includes('Reconstruction release status'));
+vm.runInContext('show(5)',context);assert.ok(nodes['#content'].innerHTML.includes('<strong>10% → 35%</strong><span>analytics engagement</span>'));assert.ok(nodes['#content'].innerHTML.includes('Share of certification admins using analytics, within two weeks of release'));assert.ok(nodes['#content'].innerHTML.includes('<strong>+10%</strong><span>new active programs, month over month after release</span>'));assert.ok(nodes['#content'].innerHTML.includes('Observed after release; not solely attributable to this change.'));assert.ok(nodes['#content'].innerHTML.indexOf('outcome-metrics')<nodes['#content'].innerHTML.indexOf('Before human review'));assert.ok(nodes['#content'].innerHTML.includes('Reconstruction release status'));
 for(const file of ['app.html','baseline.html','walkthrough.html']){
  const html=fs.readFileSync('site/'+file,'utf8');
  for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(match[1]);
@@ -36,7 +36,7 @@ assert.ok(cover.includes('Try the certification prototype'));
 assert.ok(cover.includes('The system behind my agents'));
 assert.ok(cover.includes('<strong>10% → 35% analytics engagement</strong>'));
 assert.ok(!cover.includes('dashboard engagement'));
-assert.ok(cover.includes('<span>Certificate setup stayed simple</span><br>as features were added'));
+assert.ok(cover.includes('<span>Setup stayed simple</span><br>as features were added'));
 assert.ok(cover.includes('+10% new active programs after release'));
 assert.ok(cover.includes('shipped by my agent team and approved by my EM'));
 assert.ok(cover.includes('powered by my AI second brain'));
