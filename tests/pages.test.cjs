@@ -44,10 +44,11 @@ assert.ok(cover.indexOf('AI Second Brain')<cover.indexOf('Monitoring &amp; evalu
 assert.ok(!cover.includes('click-through'));
 assert.ok(cover.includes('+4 pts NRR'));
 assert.ok(cover.includes('From activation to retention'));
-assert.ok(cover.includes('80% recertification enablement in beta'));
+assert.ok(cover.includes('<strong>Recertification enablement</strong> <strong>80%</strong> in beta <span class="signal">Expansion signal</span>'));
 assert.equal((cover.match(/North star/g) || []).length, 1);
-assert.ok(cover.includes('Certificates issued, <strong>~9% month over month</strong>'));
-assert.ok(cover.includes('Business outcome</div><p><strong>+4 pts NRR</strong>'));
+assert.ok(cover.includes('<strong>Certificates issued</strong> <strong>~9%</strong> month over month'));
+assert.ok(cover.includes('Business outcome</div><p><strong>NRR</strong> <strong>+4 pts</strong>'));
+assert.ok(cover.includes('<strong>Program-creation conversion</strong> <strong>63.8% → 68.9%</strong>'));
 assert.ok(cover.includes('Programs launched get used'));
 assert.ok(cover.includes('~230 → ~190 seconds'));
 assert.equal((cover.match(/63\.8% → 68\.9%/g) || []).length, 1);

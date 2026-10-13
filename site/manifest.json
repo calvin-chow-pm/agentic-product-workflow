@@ -4,11 +4,11 @@
   "agent_inference": "Recorded only; no live inference or background workers on the hosted site",
   "prototype_changes": "Browser-tab sample edits only; preview events are not sent to a server",
   "local_candidate_sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
-  "source_cover_sha256": "4eed1ff23bab683f69b0ba3e31c11827285d819dc7e56cabf52eed053e23104e",
+  "source_cover_sha256": "bad15be7d1d1c6f1835a7ad158f1ff12020b4d7d7e4168f875c13a7b2657919c",
   "historical_outcomes": "User-confirmed historical account, separate from synthetic execution records",
   "source_workflow_sha256": "1bf3bf35fa241d651a61880595183b16cb0b6a06775cfd4f4deedc975ff4a9f3",
   "snapshot_files": {
-    "index.html": "bbb4ad168c149193b50703e36ee5eb14288f17add17d987f2a8c7ec152d95801",
+    "index.html": "703ec8f613f096723c8eee00e44f897d57aed6613bb3b7c48618464227e44ba2",
     "workflow.html": "531eec12900e81cde3e9be2a1c5ad6496043a6bfebc53ff8180addfaac679c56",
     "app.html": "3a77391e44cc1a291823b238d870a36c52faff0ac4ac351b484ded7e580a7064",
     "prototype.html": "bcf8e605c344f6f61b3a3f82d7c1e3ffcf5f6b6ee91006ff738e8bcdc7d214eb",
@@ -16,8 +16,8 @@
     "walkthrough.html": "97a9e74ea19bbef1dae112bdaab7c99585da95b0b758585a5690a01b1902baba",
     "run.json": "3839cb5b77d8051ad6f2a03a6235a0b9d7a959730bd6503ff60b4a38b7b79584",
     "historical-outcomes.json": "035540d62f57e6b0e1483fd3857f5bf9433f2c0cc4595455478b6503d2930ab4",
-    "system.html": "02f0b64056b016d6fe1ae6f75899411f9ad37cc4b660d91b431dce337152ac99",
-    "system.css": "9dc927a83d753be2409f3b4daaba2c36e776df3a8c5b2df4a26cb162d526fa30",
+    "system.html": "4deffbae1d091e5149c31a59f0d595d5c35ac205dc5427defe8a3e85a8b58173",
+    "system.css": "74465bde82f8c6e14533fe4c08927302cb9b1b9e1c3f8cf10882316a164b7b9c",
     "system.js": "36548725a51ff74eb94b1f2cc9b4fce9a2967ba21db4d214104ba4b2d8c8b2ec",
     "analytics.js": "6e1f1efd6ebb014185660dfc41c4b5b40b5e062cb5a16a8f735f52011ba905a0"
   },
@@ -27,8 +27,8 @@
   "context_version": 2,
   "publication": "Prepared files only; export does not publish or approve a release",
   "source_system_files": {
-    "system.html": "02f0b64056b016d6fe1ae6f75899411f9ad37cc4b660d91b431dce337152ac99",
-    "system.css": "9dc927a83d753be2409f3b4daaba2c36e776df3a8c5b2df4a26cb162d526fa30",
+    "system.html": "4deffbae1d091e5149c31a59f0d595d5c35ac205dc5427defe8a3e85a8b58173",
+    "system.css": "74465bde82f8c6e14533fe4c08927302cb9b1b9e1c3f8cf10882316a164b7b9c",
     "system.js": "36548725a51ff74eb94b1f2cc9b4fce9a2967ba21db4d214104ba4b2d8c8b2ec",
     "analytics.js": "6e1f1efd6ebb014185660dfc41c4b5b40b5e062cb5a16a8f735f52011ba905a0"
   },

@@ -16,7 +16,8 @@ buttons[2].listeners.keydown({key:'End',preventDefault(){}});visible(3);assert.e
 buttons[3].listeners.keydown({key:'Home',preventDefault(){}});visible(0);
 buttons[0].listeners.keydown({key:'ArrowLeft',preventDefault(){}});visible(3);
 nodes.previous.listeners.click();visible(2);nodes.next.listeners.click();visible(3);
-assert.ok(html.includes('Scored on four dimensions against 15 hand-scored examples'));
+assert.ok(html.includes('Scored on 4 dimensions against 15 hand-scored examples'));
+assert.ok(!html.includes('Scored on four dimensions'));
 assert.ok(!html.includes('Four dimensions. Anchors before automation.'));
 assert.ok(html.includes('A real monitoring error and how I corrected it'));
 assert.ok(!html.includes('Illustrative decision receipt'));
