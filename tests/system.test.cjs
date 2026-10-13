@@ -6,7 +6,7 @@ const buttons = Array.from({length:4}, (_,i) => ({listeners:{}, attributes:{}, a
 const panels = Array.from({length:4}, () => ({hidden:false}));
 const nodes = {progress:{},previous:{listeners:{},addEventListener(e,f){this.listeners[e]=f}},next:{listeners:{},addEventListener(e,f){this.listeners[e]=f}}};
 let focused=-1;
-const context = {document:{querySelectorAll(s){return s==='[data-step]'?buttons:panels},getElementById(id){return nodes[id]}}};
+const context = {document:{querySelectorAll(s){if(s==='[data-step]')return buttons;if(s==='.panel')return panels;return []},getElementById(id){return nodes[id]}}};
 vm.createContext(context);vm.runInContext(script,context);
 function visible(i){assert.deepEqual(panels.map(p=>p.hidden),panels.map((p,n)=>n!==i));assert.equal(buttons[i].attributes['aria-pressed'],'true');assert.ok(nodes.progress.textContent.includes(`Step ${i+1} of 4`))}
 visible(0);assert.equal(nodes.previous.disabled,true);
@@ -16,6 +16,9 @@ buttons[2].listeners.keydown({key:'End',preventDefault(){}});visible(3);assert.e
 buttons[3].listeners.keydown({key:'Home',preventDefault(){}});visible(0);
 buttons[0].listeners.keydown({key:'ArrowLeft',preventDefault(){}});visible(3);
 nodes.previous.listeners.click();visible(2);nodes.next.listeners.click();visible(3);
+assert.ok(html.includes('Scored on 4 dimensions against 15 hand-scored examples'));
+assert.ok(!html.includes('Scored on four dimensions'));
+assert.ok(!html.includes('Four dimensions. Anchors before automation.'));
 assert.ok(html.includes('A real monitoring error and how I corrected it'));
 assert.ok(!html.includes('Illustrative decision receipt'));
 assert.ok(!html.includes('Example scores'));

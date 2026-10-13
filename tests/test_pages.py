@@ -39,7 +39,8 @@ class PagesTests(unittest.TestCase):
         self.assertEqual(state['human_review'], manifest['manual_review'])
         self.assertEqual(state['context_pack']['version'], manifest['context_version'])
         html = (SITE / 'workflow.html').read_text()
-        self.assertIn('Hosted snapshot:', html)
+        self.assertIn('Sample-data rebuild of a workflow I used at Thinkific; no company code.', html)
+        self.assertNotIn('Hosted snapshot:', html)
         self.assertNotIn('{{TOKEN}}', html)
         self.assertNotIn('fetch(', html)
         for file in ['app.html', 'prototype.html', 'baseline.html']:

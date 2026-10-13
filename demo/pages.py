@@ -15,7 +15,6 @@ def with_analytics(source):
 def static_app(source):
     source = source.replace('padding:36px 42px;margin:auto', 'padding:36px 42px;margin:0 auto')
     source = source.replace('href="/"', 'href="index.html"')
-    source = source.replace('Demo workspace · All numbers are sample data', 'Interactive preview · All numbers are sample data')
     start = source.index('async function track(')
     end = source.index("document.querySelectorAll('[data-event]')", start)
     source = source[:start] + """async function track(event,placement){const labels={analytics_cta_exposed:'Analytics link displayed.',analytics_cta_clicked:'Analytics link opened.',dashboard_viewed:'Analytics dashboard opened.',dashboard_action:'Renewal activity shown.'};document.getElementById('event-note').textContent='Demo interaction: '+(labels[event]||'Preview updated.');}
@@ -51,9 +50,6 @@ def export(demo, output):
     workflow = workflow.replace('href="/"', 'href="index.html"')
     workflow = workflow.replace("'/baseline'", "'baseline.html'").replace("'/app'", "'app.html'")
     workflow = workflow.replace("'/baseline?qa=1'", "'baseline.html?qa=1'")
-    notice = (' <span><strong>Hosted snapshot:</strong> captured on ' + captured_at[:10] + '. Agents do not run live here. '
-              '<a href="manifest.json">Snapshot provenance</a> · <a href="run.json">Execution record</a></span>')
-    workflow = workflow.replace('</div><div class="layout">', notice + '</div><div class="layout">', 1)
     values = chapters(demo)
     # Include the completed follow-up reasoning, not just prompt assembly.
     values[-1]['evidence']['applied_reasoning'] = [e['evidence'] for e in state['events'] if e['phase'] == 'reuse-result']
@@ -66,7 +62,7 @@ def export(demo, output):
     cover = cover.replace('href="/workflow', 'href="workflow.html')
     cover = cover.replace('href="/app', 'href="app.html').replace('src="/app', 'src="app.html')
     prototype = candidate.replace('<title>Academy · Certification workspace</title>', '<title>Certification Programs Prototype · Calvin Chow</title>')
-    prototype = re.sub(r'<div class="notice">.*?</div>', '<div class="notice">Certification prototype · Reconstructed with sample data</div>', prototype, count=1)
+    prototype = re.sub(r'<div class="notice">.*?</div>', '<div class="notice">All numbers are sample data · reconstructed prototype · no company code · edits stay in this browser tab</div>', prototype, count=1)
     for name, value in [('index.html', cover), ('workflow.html', workflow), ('app.html', candidate), ('prototype.html', prototype), ('baseline.html', baseline), ('walkthrough.html', playback)]:
         (output / name).write_text(with_analytics(value))
     for name in ['system.html', 'system.css', 'system.js', 'analytics.js']:
