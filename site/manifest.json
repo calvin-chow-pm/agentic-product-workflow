@@ -4,11 +4,11 @@
   "agent_inference": "Recorded only; no live inference or background workers on the hosted site",
   "prototype_changes": "Browser-tab sample edits only; preview events are not sent to a server",
   "local_candidate_sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
-  "source_cover_sha256": "0cd856c73a300e5e38e4034f8a1fcb52dec8dd22f9f64833d51aa708b57f6225",
+  "source_cover_sha256": "a141d500fc06e8d0e4ac57c3b0409d519b709cb81c220d45468d151bd81cadd9",
   "historical_outcomes": "User-confirmed historical account, separate from synthetic execution records",
   "source_workflow_sha256": "1bf3bf35fa241d651a61880595183b16cb0b6a06775cfd4f4deedc975ff4a9f3",
   "snapshot_files": {
-    "index.html": "4fe480c3e33a7f880b63f2e7394ffe4b97cff3055c953e4c341742abd38eac72",
+    "index.html": "398751435552090f56402edda90a4813977cac1188f542f4688f8aca8e7b3d7f",
     "workflow.html": "531eec12900e81cde3e9be2a1c5ad6496043a6bfebc53ff8180addfaac679c56",
     "app.html": "3a77391e44cc1a291823b238d870a36c52faff0ac4ac351b484ded7e580a7064",
     "prototype.html": "bcf8e605c344f6f61b3a3f82d7c1e3ffcf5f6b6ee91006ff738e8bcdc7d214eb",
