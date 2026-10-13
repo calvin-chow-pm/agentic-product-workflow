@@ -30,3 +30,17 @@ document.querySelectorAll('a[data-goto-step]').forEach(link => {
   });
 });
 selectStep(0);
+function openSupportingExample() {
+  const details = document.querySelector('#supporting-example details');
+  if (details) details.open = true;
+}
+document.querySelectorAll('a[href="#supporting-example"]').forEach(link => {
+  link.addEventListener('click', openSupportingExample);
+});
+function openExampleFromHash() {
+  if (globalThis.location && globalThis.location.hash === '#supporting-example') openSupportingExample();
+}
+openExampleFromHash();
+if (typeof globalThis.addEventListener === 'function') {
+  globalThis.addEventListener('hashchange', openExampleFromHash);
+}
