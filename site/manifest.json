@@ -6,7 +6,7 @@
   "local_candidate_sha256": "a968ffd27c468b3ea2ec2eeb43b73551a702df154172e758633797ca1e38b8ce",
   "source_cover_sha256": "1e5220eaf4844d7cab6bad165fec3e326979e8d7961a659bc1b8bd4bd07d7a98",
   "historical_outcomes": "User-confirmed historical account, separate from synthetic execution records",
-  "source_workflow_sha256": "7be38fca73823ef4199d6db0c0f01d61165f5d2b0525ccc6c62af53909d74cdb",
+  "source_workflow_sha256": "893a1082c38905308f7338afaf4df619e158a3ceda6c61b234a7e033d74f12f4",
   "snapshot_files": {
     "index.html": "8ba8891f88fdd960cacbd9bf54bde6c37e4309261153f64465c5ecb1b5ad09e6",
     "workflow.html": "a093738cd8d28c1b16a360c6185da95ce1d264c54e34cd64497e6813dfaddac5",
@@ -15,7 +15,7 @@
     "baseline.html": "9821f627feec5035c16ee50dc453db0cbdb780eb7c607ad8cbab55aa6f51f2c1",
     "walkthrough.html": "036a5b461504ec53fd5f007af404d60c7bd992fd9d9e85c50ad12c422169a0e0",
     "run.json": "3839cb5b77d8051ad6f2a03a6235a0b9d7a959730bd6503ff60b4a38b7b79584",
-    "historical-outcomes.json": "035540d62f57e6b0e1483fd3857f5bf9433f2c0cc4595455478b6503d2930ab4",
+    "historical-outcomes.json": "92e63e9c8bbcc457eafd92b57bee2d091db9e9a0207a7a297d473f46aaea219d",
     "system.html": "7d89ced1e5eafa7382b60af19615cec3c6f0e5342360ef10fccdbde7101f713c",
     "system.css": "74465bde82f8c6e14533fe4c08927302cb9b1b9e1c3f8cf10882316a164b7b9c",
     "system.js": "36548725a51ff74eb94b1f2cc9b4fce9a2967ba21db4d214104ba4b2d8c8b2ec",

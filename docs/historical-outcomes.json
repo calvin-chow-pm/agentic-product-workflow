@@ -9,7 +9,7 @@
     "The link was agent-built, reviewed by the QA agent in staging, reviewed by Calvin in an ephemeral environment and approved by his EM before shipping, then reviewed again by the QA agent in production",
     "Customer engagement and program-health signals were subsequently observed"
   ],
-  "dashboard_click_through": {
+  "share_of_certification_admins_using_analytics": {
     "before_percent": 10,
     "after_percent": 35,
     "increase_percentage_points": 25,
