@@ -57,8 +57,11 @@ class PagesTests(unittest.TestCase):
         self.assertIn('Analytics implemented the dashboard', source)
         self.assertNotIn('const capturedState=', cover)
         history = json.loads((SITE / 'historical-outcomes.json').read_text())
-        self.assertEqual(history['dashboard_click_through']['before_percent'], 10)
-        self.assertEqual(history['dashboard_click_through']['after_percent'], 35)
+        self.assertEqual(history['share_of_certification_admins_using_analytics']['before_percent'], 10)
+        self.assertEqual(history['share_of_certification_admins_using_analytics']['after_percent'], 35)
+        workflow = (SITE.parent / 'web' / 'workflow.html').read_text()
+        self.assertIn('Share of certification admins using analytics, within two weeks of release', workflow)
+        self.assertIn('Observed after release; not solely attributable to this change.', workflow)
         self.assertEqual(history['new_active_programs_created']['window'], 'month over month')
         self.assertEqual(history['evidence_type'], 'User-confirmed historical account; not synthetic demo telemetry')
 
